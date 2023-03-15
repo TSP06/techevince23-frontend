@@ -43,12 +43,12 @@ export default function Team() {
   return (
     <div>
     <div className=" flex flex-col">
-        <div>
+        <div className="relative">
             <p className="flex flex-col items-start text-3xl font-semibold self-stretch absolute top-5 left-14 z-10" style={{fontFamily: 'Clash Display Variable'}}>Core Team</p>
             <div className="rectangle bg-customBlue-100 h-3 w-36 absolute top-11 left-28"></div>
         </div> 
 
-        <div className='grid justify-items-center grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-12 w-full mb-56 mt-auto pt-96'>
+        <div className='grid justify-items-center grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-12 w-full mb-56 mt-auto pt-28'>
         {team && team.map(item =>{
             return(
                 <div className='flex flex-col w-80 bg-white hover:scale-110 transform transition duration-500'>

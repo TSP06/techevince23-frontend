@@ -7,7 +7,7 @@ export default function ErrorPage() {
   console.error(error);
 
   return (
-    <div className='grid place-content-center gap-10 justify-items-center h-screen'>
+    <div className='h-screen'>
       <Gallery/>
       <Team/>
     </div>
