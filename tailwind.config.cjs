@@ -7,9 +7,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "dark-blue": "#0050FF",
+        transparent: 'transparent',
+        current: 'currentColor',
+        customBlue: {
+          100: "#0094FF",
+          200: "#0050FF",
+          300: "#032538",
+        },
+        customOrange: {
+          100: "#FF703C"
+        },
       },
     },
+    
   },
   plugins: [],
 }
