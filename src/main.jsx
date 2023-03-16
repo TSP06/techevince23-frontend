@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import Home from "./routes/home";
 import ErrorPage from "./routes/error-page";
+import TopPart from "./routes/top-part";
 
 const router = createBrowserRouter([
   {
@@ -11,6 +12,10 @@ const router = createBrowserRouter([
     element: <Home />,
     errorElement: <ErrorPage />,
   },
+  {
+    path: "/top",
+    element: <TopPart />,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
