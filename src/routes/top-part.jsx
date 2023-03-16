@@ -5,7 +5,7 @@ import TechevinceLogoBar from "../components/techevince-logo";
 const TopPart = () => {
   return (
     <div className='overflow-x-hidden'>
-      <section className='min-h-screen relative bg-dark-blue'>
+      <section className='min-h-screen relative bg-customBlue-200'>
         {/* Absolute position grid  */}
         <div className='absolute'>
           <GridDiv />

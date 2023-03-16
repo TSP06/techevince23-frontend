@@ -4,7 +4,7 @@ const GridDiv = () => {
   return (
     <div className='relative'>
       <div className='h-screen'>
-        <div className='absolute top-0 w-screen h-1/2 z-10 bg-gradient-to-b from-transparent to-dark-blue'></div>
+        <div className='absolute top-0 w-screen h-1/2 z-10 bg-gradient-to-b from-transparent to-customBlue-200'></div>
       </div>
       <div className='absolute top-0 w-full h-screen z-0'>
         <div className='container h-2/5 relative w-screen'>
