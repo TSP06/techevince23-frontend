@@ -5,6 +5,10 @@ import "./index.css";
 import Home from "./routes/home";
 import ErrorPage from "./routes/error-page";
 import TopPart from "./routes/top-part";
+import HardwareInfo from "./routes/hardware-info";
+import SoftwareInfo from "./routes/software-info";
+import BusinessInfo from "./routes/business-info";
+import HardwareVote from "./routes/hardware-vote";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +19,23 @@ const router = createBrowserRouter([
   {
     path: "/top",
     element: <TopPart />,
-  }
+  },
+  {
+    path: "/hardware",
+    element: <HardwareInfo />,
+  },
+  {
+    path: "/software",
+    element: <SoftwareInfo/>,
+  },
+  {
+    path: "/business",
+    element: <BusinessInfo/>,
+  },
+  {
+    path: "/vote-hardware",
+    element: <HardwareVote/>
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

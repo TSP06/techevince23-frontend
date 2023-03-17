@@ -54,14 +54,14 @@ export default function Gallery() {
         <div>
         <div className=" flex flex-col">
         <div className="mt-12">
-            <p className="flex flex-col items-start text-3xl font-semibold self-stretch mx-14 -mb-3 top-5 left-14 z-10" style={{fontFamily: 'Clash Display Variable'}}>Event Gallery</p>
-            <div className="rectangle bg-customBlue-100 h-3 w-36 mx-28 top-11 left-28"></div>
+            <p className="flex flex-col items-start text-3xl md:text-4xl font-semibold self-stretch mx-14 -mb-3 top-5 left-14 z-10" style={{fontFamily: 'Clash Display Variable'}}>Event Gallery</p>
+            <div className="rectangle bg-customBlue-100 h-3 w-48 sm:w-44 mx-14 sm:mx-28 top-11 left-28"></div>
         </div> 
         <div className=" text-white flex  mx-0">
             <div className="w-full mx-0">
             <Swiper
                 spaceBetween={0}
-                slidesPerView={screenWidth>640 ? 4 : screenWidth>480?3 : screenWidth>320?2 :1}
+                slidesPerView={screenWidth>640 ? 4 : screenWidth>480?3 : screenWidth>360?2 :1}
                 onSlideChange={(curr) => setActive(curr.realIndex)}
                 loop={true}
                 centeredSlides={true}

@@ -18,8 +18,13 @@ module.exports = {
           100: "#FF703C"
         },
       },
+      fontFamily:{
+        body: ['Kanit']
+      }
     },
     
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar-hide')
+  ],
 }
