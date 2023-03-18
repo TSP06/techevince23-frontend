@@ -1,7 +1,7 @@
 import React from "react";
-import Ball from "../components/ball";
-import GridTopDiv from "../components/grid-div";
-import TechevinceLogoBar from "../components/techevince-logo";
+import Ball from "./ball";
+import GridTopDiv from "./grid-div";
+import TechevinceLogoBar from "./techevince-logo";
 import Raman from "../assets/raman.png";
 import "./bounce.css";
 

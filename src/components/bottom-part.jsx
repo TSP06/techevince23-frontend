@@ -1,16 +1,16 @@
 import React from "react";
-import GridSideDiv from "../components/grid-side-div";
+import GridSideDiv from "./grid-side-div";
 import BottomPhoto from "../assets/bottom.png";
 
 const BottomPart = () => {
   return (
-    <div className='bg-customBlue-200 h-[60vh] w-screen flex justify-between'>
-      <div className='absolute pb-20 bg-customBlue-200'>
+    <div className='bg-customBlue-200 w-screen flex justify-between mt-10'>
+      <div className='absolute bg-customBlue-200'>
         <GridSideDiv />
       </div>
-      <div className='relative z-20 my-40 mx-20'>
+      <div className='relative z-20 my-[4.5rem] lg:my-40 px-20'>
         <div className='relative'>
-          <p className='text-white text-5xl font-bold'>
+          <p className='text-white text-2lg md:text-5xl font-bold'>
             {" "}
             See you on 25th March{" "}
           </p>
