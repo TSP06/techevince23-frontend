@@ -45,8 +45,7 @@ export default function Team() {
       <div className=' flex flex-col'>
         <div className='mt-12'>
           <p
-            className='flex flex-col items-start text-3xl md:text-4xl font-semibold self-stretch mx-14 -mb-3 top-5 left-14 z-10'
-            style={{ fontFamily: "ClashDisplay" }}
+            className='flex flex-col items-start text-3xl md:text-4xl font-semibold self-stretch mx-14 -mb-3 top-5 left-14 z-10 font-ClashDisplay'
           >
             Core Team
           </p>

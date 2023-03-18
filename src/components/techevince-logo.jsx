@@ -3,7 +3,7 @@ import TechevinceLogo from '../assets/techboard-logo.svg';
 
 const TechevinceLogoBar = () => {
   return (
-    <div className='rounded-full h-14 w-48 bg-white items-center flex p-2'>
+    <div className='rounded-full font-ClashDisplay h-14 w-48 bg-white items-center flex p-2'>
       <div className='rounded-full bg-customBlue-200'>
         <img src={TechevinceLogo} alt="TechevinceLogo" />
       </div>

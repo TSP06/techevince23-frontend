@@ -1,6 +1,31 @@
-import React from "react";
+import React, { useMemo } from "react";
+import { useState, useEffect } from "react";
 
 const GridTopDiv = () => {
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const changeWidth = () => {
+      setScreenWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", changeWidth);
+    return () => {
+      window.removeEventListener("resize", changeWidth);
+    };
+  }, []);
+
+  const numberOfColumns = useMemo(() => {
+    if (screenWidth > 1024) {
+      return 18;
+    } else if (screenWidth > 768) {
+      return 12;
+    } else if (screenWidth > 640) {
+      return 8;
+    } else {
+      return 4;
+    }
+  }, [screenWidth]);
+
+
   return (
     <div className='relative'>
       <div className='h-screen'>
@@ -18,7 +43,7 @@ const GridTopDiv = () => {
           </div>
 
           <div className='w-screen absolute inset-0 px-8 flex justify-around items-center'>
-            {Array.from({ length: 18 }).map((_, index) => (
+            {Array.from({ length: numberOfColumns }).map((_, index) => (
               <div
                 key={index}
                 className='h-full border-r-2 border-gray-400'

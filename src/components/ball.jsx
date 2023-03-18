@@ -7,7 +7,7 @@ const Ball = ({image}) => {
       <img
         src={image}
         alt='image'
-        className='h-60 w-60 rounded-full bg-customBlue-200 border-2 border-white'
+        className='lg:h-60 h-32 md:h-44 rounded-full bg-customBlue-200 border-2 border-white'
       />
     </div>
   );

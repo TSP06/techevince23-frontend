@@ -39,12 +39,11 @@ export default function Info() {
     },[])
 
   return (
-    <div className='font-[GalanoGrotesque]'>
+    <div className='font-GalanoGrotesque'>
       <div className='flex mt-12 items-center mx-14'>
         <div className='w-full md:w-1/2 items-baseline md:pr-60'>
           <p
-            className='flex flex-col text-center items-start text-3xl md:text-4xl font-semibold self-stretch -mb-3 top-5 left-14 z-10'
-            style={{ fontFamily: "ClashDisplay" }}
+            className='flex flex-col text-center items-start text-3xl md:text-4xl font-semibold self-stretch -mb-3 top-5 left-14 z-10 font-ClashDisplay'
           >
             What is Techevince?
           </p>
@@ -71,8 +70,7 @@ export default function Info() {
       <div className='flex mt-12 items-center ml-14'>
         <div className='w-full md:w-2/5 items-baseline md:pr-20'>
           <p
-            className='flex flex-col text-center items-start text-3xl md:text-4xl font-semibold self-stretch -mb-3 top-5 left-14 z-10'
-            style={{ fontFamily: "ClashDisplay" }}
+            className='flex flex-col text-center items-start text-3xl md:text-4xl font-semibold self-stretch -mb-3 top-5 left-14 z-10 font-ClashDisplay'
           >
             Event Structure
           </p>
@@ -103,8 +101,7 @@ export default function Info() {
       <div className=' flex flex-col'>
         <div className='mt-12'>
           <p
-            className='flex flex-col items-start text-3xl md:text-4xl font-semibold self-stretch mx-14 -mb-3 top-5 left-14 z-10'
-            style={{ fontFamily: "ClashDisplay" }}
+            className='flex flex-col items-start text-3xl md:text-4xl font-semibold self-stretch mx-14 -mb-3 top-5 left-14 z-10 font-ClashDisplay'
           >
             Vote Now
           </p>
@@ -120,8 +117,7 @@ export default function Info() {
                     <div className='relative bg-customBlue-200 bg-opacity-50 hover:bg-opacity-0 transition duration-500'>
                       <img src={item.img_url} className='relative -z-20' />
                       <div
-                        className='absolute transform -rotate-90 text-white text-3xl md:text-5xl font-semibold self-stretch -left-8 md:-left-12 bottom-24'
-                        style={{ fontFamily: "ClashDisplay" }}
+                        className='absolute transform -rotate-90 text-white text-3xl md:text-5xl font-semibold self-stretch -left-8 md:-left-12 bottom-24 font-ClashDisplay'
                       >
                         {item.category}
                       </div>
@@ -137,8 +133,7 @@ export default function Info() {
       <div className='flex mt-12 items-center ml-14'>
         <div className='w-full md:w-2/5 items-baseline md:pr-20'>
           <p
-            className='flex flex-col text-center items-start text-3xl md:text-4xl font-semibold self-stretch -mb-3 top-5 left-14 z-10'
-            style={{ fontFamily: "ClashDisplay" }}
+            className='flex flex-col text-center items-start text-3xl md:text-4xl font-semibold self-stretch -mb-3 top-5 left-14 z-10 font-ClashDisplay'
           >
             Event Structure
           </p>

@@ -19,7 +19,9 @@ module.exports = {
         },
       },
       fontFamily:{
-        body: ['Kanit']
+        body: ['Kanit'],
+        'GalanoGrotesque': ['GalanoGrotesque'],
+        'ClashDisplay': ['ClashDisplay'],
       }
     },
     

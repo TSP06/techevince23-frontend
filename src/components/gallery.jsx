@@ -54,7 +54,7 @@ export default function Gallery() {
         <div>
         <div className=" flex flex-col">
         <div className="mt-12">
-            <p className="flex flex-col items-start text-3xl md:text-4xl font-semibold self-stretch mx-14 -mb-3 top-5 left-14 z-10" style={{fontFamily: 'ClashDisplay'}}>Event Gallery</p>
+            <p className="flex flex-col items-start text-3xl md:text-4xl font-semibold self-stretch mx-14 -mb-3 top-5 left-14 z-10 font-ClashDisplay">Event Gallery</p>
             <div className="rectangle bg-customBlue-100 h-3 w-48 sm:w-44 mx-14 sm:mx-28 top-11 left-28"></div>
         </div> 
         <div className=" text-white flex  mx-0">
