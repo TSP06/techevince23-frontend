@@ -44,7 +44,7 @@ export default function Info() {
     <div className="flex mt-12 items-center mx-14">
         <div className="w-full md:w-1/2 items-baseline md:pr-60">
             <p className="flex flex-col text-center items-start text-3xl md:text-4xl font-semibold self-stretch -mb-3 top-5 left-14 z-10" style={{fontFamily: 'Clash Display Variable'}}>What is Techevince?</p>
-            <div className="rectangle bg-customBlue-100 h-3 w-40 sm:w-56 mx-10 sm:mx-28 top-11 left-28"></div>
+            <div className="rectangle bg-customBlue-100 h-3 w-64 md:w-40 sm:w-56 md:mx-10 sm:mx-28 top-11 left-28"></div>
             <p className="text-base font-normal text-left flex-wrap leading-6" style={{fontFamily:'Galano Grotesque Alt', bottom:'4%'}}>
                 <br/>Techevince 2022 is the 9th edition of the annual technical exhibition of the Technical Board of IIT Guwahati. 
                 Techevince puts all of IITG's technological passion, innovation, and creativity under the limelight and gives 

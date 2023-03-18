@@ -12,8 +12,8 @@ export default function HardwareVote() {
             project_name: 'Campus Rush',
             team: 'Aman, Sahil, Krunal',
             stall_no: '15-A',
-            about: 'Money runs the world, and no one understands money better than our business clubs.',
-            other_details: 'Money runs the world, and no one understands money better than our business clubs.'
+            about: 'Money runs the world, and no one understands money better than our business clubs. Money runs the world, and no one understands money better than our business clubs.',
+            other_details: 'Money runs the world, and no one understands money better than our business clubs. Money runs the world, and no one understands money better than our business clubs.'
         },
         {
             img_url: CodingClub,
@@ -99,7 +99,7 @@ export default function HardwareVote() {
             other_details: 'Money runs the world, and no one understands money better than our business clubs.'
         },
     ]
-    const [showDescription, setShowDescription] = useState(true)
+    const [showDescription, setShowDescription] = useState(false)
     const [data, setData] = useState({})
     function handleFunction(prop){
         setData(prop)
@@ -108,7 +108,7 @@ export default function HardwareVote() {
     return(
         <div className='flex'>
             <div className='w-full md:w-10/12 bg-customBlue-200 h-screen text-left'>
-            <div className='h-5/6 w-8/12 mx-10 md:mx-20 my-24'>
+            <div className='h-5/6 w-8/12 mx-16 md:mx-20 my-24'>
                 <p className='text-3xl md:text-5xl font-semibold text-white -tracking-[0.01em] font-body'>
                     Hardware Clubs
                 </p>

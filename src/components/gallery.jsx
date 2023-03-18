@@ -74,7 +74,7 @@ export default function Gallery() {
                 {gallery && gallery.map((item,index) => {
                     return(
                         
-                        <SwiperSlide key={index} className={`${active === index ? 'mt-4' : 'mt-12'}`}><img src={item.img_url} alt= {item.alt} className={`${active === index ? 'h-96' :'h-80'} w-full`}/></SwiperSlide> 
+                        <SwiperSlide key={index} className={`${active === index ? 'mt-4' : 'mt-12'}`}><img src={item.img_url} alt= {item.alt} className={`${active === index ? 'h-80 md:h-96' :'h-64 md:h-80'} w-full`}/></SwiperSlide> 
                     )
                 })}
             </Swiper>
