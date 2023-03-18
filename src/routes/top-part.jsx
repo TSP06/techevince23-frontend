@@ -1,6 +1,9 @@
 import React from "react";
-import GridDiv from "../components/grid-div";
+import Ball from "../components/ball";
+import GridTopDiv from "../components/grid-div";
 import TechevinceLogoBar from "../components/techevince-logo";
+import Raman from "../assets/raman.png";
+import './bounce.css'
 
 const TopPart = () => {
   return (
@@ -8,7 +11,16 @@ const TopPart = () => {
       <section className='min-h-screen relative bg-customBlue-200'>
         {/* Absolute position grid  */}
         <div className='absolute'>
-          <GridDiv />
+          <GridTopDiv />
+        </div>
+        <div className='absolute top-0 left-80 z-20 bounce-diagonal'>
+          <Ball image={Raman} />
+        </div>
+        <div className='absolute bottom-80 right-0 z-20 bounce-oppisite'>
+          <Ball image={Raman} />
+        </div>
+        <div className='absolute top-0 left-0 z-20 bounce-rotate'>
+          <Ball image={Raman} />
         </div>
 
         <div className='absolute top-16 left-20 z-10'>

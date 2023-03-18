@@ -5,6 +5,7 @@ import "./index.css";
 import Home from "./routes/home";
 import ErrorPage from "./routes/error-page";
 import TopPart from "./routes/top-part";
+import BottomPart from "./routes/bottom-part";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +16,11 @@ const router = createBrowserRouter([
   {
     path: "/top",
     element: <TopPart />,
-  }
+  },
+  {
+    path: "/bottom",
+    element: <BottomPart />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

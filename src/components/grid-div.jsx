@@ -1,6 +1,6 @@
 import React from "react";
 
-const GridDiv = () => {
+const GridTopDiv = () => {
   return (
     <div className='relative'>
       <div className='h-screen'>
@@ -12,7 +12,7 @@ const GridDiv = () => {
             {Array.from({ length: 5 }).map((_, index) => (
               <div
                 key={index}
-                className='w-full border-b border-gray-400'
+                className='w-full border-b-2 border-gray-400'
               ></div>
             ))}
           </div>
@@ -21,7 +21,7 @@ const GridDiv = () => {
             {Array.from({ length: 18 }).map((_, index) => (
               <div
                 key={index}
-                className='h-full border-r border-gray-400'
+                className='h-full border-r-2 border-gray-400'
               ></div>
             ))}
           </div>
@@ -31,4 +31,4 @@ const GridDiv = () => {
   );
 };
 
-export default GridDiv;
+export default GridTopDiv;
