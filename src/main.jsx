@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
+import "virtual:fonts.css";
 import Home from "./routes/home";
 import ErrorPage from "./routes/error-page";
 import TopPart from "./routes/top-part";
