@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function HardwareInfo() {
     return(
         <div className='flex'>
             <div className='w-full md:w-5/12 bg-customBlue-200 h-screen items-center text-left'>
             <div className='h-5/6 w-8/12 items-center mx-auto my-24'>
-                <p className='text-5xl font-semibold text-white -tracking-[0.01em] leading-tight font-body'>
+                <p className='text-3xl md:text-5xl font-semibold text-white -tracking-[0.01em] leading-tight font-body'>
                     Hardware<br/>
                     Clubs
                 </p>
