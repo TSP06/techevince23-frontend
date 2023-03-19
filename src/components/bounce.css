@@ -69,6 +69,18 @@
   }
 }
 
+@keyframes bounce-dia {
+  0%,
+  100% {
+    transform: translate(0%, 0%) rotate(0deg);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+
+  50% {
+    transform: translate(-200%, 200%) rotate(360deg);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
 
 .bounce {
   display: inline-block;
@@ -93,4 +105,9 @@
 .bounce-rotate-oppisite {
   display: inline-block;
   animation: bounce-rotate-oppisite 4s infinite;
+}
+
+.bounce-dia {
+  display: inline-block;
+  animation: bounce-dia 4s infinite;
 }
