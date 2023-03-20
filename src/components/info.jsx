@@ -53,7 +53,7 @@ export default function Info() {
             style={{ fontFamily: "GalanoGrotesque", bottom: "4%" }}
           >
             <br />
-            Techevince 2022 is the 9th edition of the annual technical
+            Techevince 2023 is the 9th edition of the annual technical
             exhibition of the Technical Board of IIT Guwahati. Techevince puts
             all of IITG's technological passion, innovation, and creativity
             under the limelight and gives a stage to the college's tech
@@ -117,7 +117,7 @@ export default function Info() {
                     <div className='relative bg-customBlue-200 bg-opacity-50 hover:bg-opacity-0 transition duration-500'>
                       <img src={item.img_url} className='relative -z-20' />
                       <div
-                        className='absolute transform -rotate-90 text-white text-3xl md:text-5xl font-semibold self-stretch -left-8 md:-left-12 bottom-24 font-ClashDisplay'
+                        className='absolute transform -rotate-90 text-white text-3xl md:text-5xl font-semibold self-stretch -left-8 md:-left-16 bottom-28 font-ClashDisplay'
                       >
                         {item.category}
                       </div>

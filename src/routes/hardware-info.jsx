@@ -32,7 +32,7 @@ export default function HardwareInfo() {
         </div>
       </div>
       <div className='z-30 md:w-7/12 w-0 bg-white'>
-        <div className='mx-12 flex h-full relative overflow-hidden'>
+        <div className='ml-12 flex h-full relative overflow-hidden'>
           <div className='absolute top-10 left-0 z-20 bounce'>
             <Ball image={Raman} />
           </div>
@@ -42,7 +42,7 @@ export default function HardwareInfo() {
           <div className='absolute top-10 left-0 z-20 bounce-rotate'>
             <Ball image={Raman} />
           </div>
-          <div className='self-end mb-20 bg-customBlue-200 rounded-full w-full p-5 flex justify-between items-center text-white'>
+          <div className='mr-12 self-end mb-20 bg-customBlue-200 rounded-full w-full p-5 flex justify-between items-center text-white'>
             <p className='font-ClashDisplay text-2xl font-bold'>
               Vote Projects
             </p>

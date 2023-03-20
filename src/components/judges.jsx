@@ -1,6 +1,7 @@
 import React from "react";
 import GridSideDiv from "./grid-side-div";
 import Raman from "../assets/raman.png";
+import BusinessLogo from "../assets/businessLogo.png";
 
 const Judges = () => {
   const icons = {
@@ -150,7 +151,7 @@ const Judges = () => {
             "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis, adipisci quibusdam, atque neque iure magni illo sit enim eaque accusantium molestiae, provident corporis cum! Aperiam eligendi nisi est ab obcaecati.",
         },
       ],
-      image: Raman,
+      image: BusinessLogo,
       socials: [
         {
           name: "linkedin",
@@ -208,30 +209,29 @@ const Judges = () => {
                     </div>
                   </div>
                 </div>
-                <div className='mx-14 z-20'>
+                <div className='w-3/4 ml-8 md:ml-14 mr-2 z-20'>
                   <div>
-                    <p className='text-2xl font-bold'>{judge.name}</p>
-                    <p className=''>{judge.designation}</p>
+                    <p className='text-base md:text-2xl font-bold'>{judge.name}</p>
+                    <p className='text-sm md:text-xl'>{judge.designation}</p>
                   </div>
                   <br />
                   <br />
-                  <p className='text-xl font-semibold'>
+                  <p className='text-base md:text-xl font-semibold'>
                     {judge.description[0].title}
                   </p>
-                  <p>{judge.description[0].description}</p>
+                  <p className="text-sm md:text-xl">{judge.description[0].description}</p>
                   <br />
                   <br />
-                  <p className='text-xl font-semibold'>
+                  <p className='text-base md:text-xl font-semibold'>
                     {judge.description[1].title}
                   </p>
-                  <p>{judge.description[1].description}</p>
+                  <p className="text-sm md:text-xl">{judge.description[1].description}</p>
                   <br />
-                  <br />
-                  <div className="flex gap-8">
+                  <div className="mt-4 flex gap-8">
                     {judge.socials.map((social, index) => {
                       return (
                         <a href={social.link} target='_blank' key={index}>
-                          <div className='flex justify-center items-center gap-2 rounded-full bg-gray-600 h-12 w-12'>
+                          <div className='flex justify-center items-center gap-2 rounded-full bg-gray-600 h-10 md:h-12 w-10 md:w-12'>
                             <div className='w-6 h-6'>
                               {icons[social.name]}
                             </div>
@@ -241,11 +241,13 @@ const Judges = () => {
                     })}
                   </div>
                 </div>
-                <div>
+                <div className="w-0 md:w-full">
                   <div className='flex flex-col w-full hover:scale-110 transform transition duration-500'>
                     <div className='relative bg-customBlue-200 bg-opacity-50 hover:bg-opacity-0 transition duration-500'>
-                      <img src={judge.image} className='relative -z-20' />
-                      <div className='absolute transform -rotate-90 text-white text-3xl md:text-5xl font-semibold self-stretch -left-8 md:-left-12 bottom-24 font-ClashDisplay'>
+                      <img src={judge.image} className='relative -z-20 h-48 md:h-[360px] w-96' />
+                      <div
+                        className='absolute transform -rotate-90 text-white text-base md:text-3xl font-semibold self-stretch -left-8 md:-left-28 bottom-40 font-ClashDisplay'
+                      >
                         {judge.name}
                       </div>
                     </div>

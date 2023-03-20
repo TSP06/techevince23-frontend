@@ -19,14 +19,6 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/top",
-    element: <TopPart />,
-  },
-  {
-    path: "/bottom",
-    element: <BottomPart />,
-  },
-  {
     path: "/hardware",
     element: <HardwareInfo />,
   },
