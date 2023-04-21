@@ -80,7 +80,7 @@ export default function Info() {
             style={{ fontFamily: "GalanoGrotesque", bottom: "4%" }}
           >
             <br />
-            Techevince will be going to be held on 25th March at IIT Guwahati
+            Techevince will be going to be held on 23rd April at IIT Guwahati
             Campus. Various tech clubs with over 500+ students will be going to
             participate in this mega tech expo and will be presenting their
             astounding projects and work in their respective domains.
@@ -143,7 +143,7 @@ export default function Info() {
             style={{ fontFamily: "GalanoGrotesque", bottom: "4%" }}
           >
             <br />
-            Techevince will be going to be held on 25th March at IIT Guwahati
+            Techevince will be going to be held on 23rd April at IIT Guwahati
             Campus. Various tech clubs with over 500+ students will be going to
             participate in this mega tech expo and will be presenting their
             astounding projects and work in their respective domains.
