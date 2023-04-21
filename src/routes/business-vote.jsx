@@ -215,6 +215,10 @@ export default function BusinessVote() {
               isVisible={showDescription}
               onClose={() => setShowDescription(false)}
               data={data}
+              VoteHandler={handleVote}
+              loggedBool={loggedBool}
+              voteBool={votedBusiness}
+              selectedButton={selectedButton}
             />
           </div>
           <Popup

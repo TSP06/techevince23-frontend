@@ -215,6 +215,10 @@ export default function HardwareVote() {
               isVisible={showDescription}
               onClose={() => setShowDescription(false)}
               data={data}
+              VoteHandler={handleVote}
+              loggedBool={loggedBool}
+              voteBool={votedHardware}
+              selectedButton={selectedButton}
             />
           </div>
           <Popup
