@@ -7,6 +7,8 @@ import Raman from "../assets/raman.png";
 import axios from "axios";
 import { BACKEND_ROUTES } from "../config/urls";
 import { cleanUrl } from "../service/handleImage";
+import TechevinceLogoBar from "../components/techevince-logo";
+import {Link} from 'react-router-dom';
 
 export default function SoftwareVote() {
   const [projects, setProjects] = useState([]);
@@ -35,9 +37,11 @@ export default function SoftwareVote() {
   };
   return (
     <div className='flex'>
-      <div className='absolute'>
-        {/* hanging login button */}
-      </div>
+      <Link to ="/" className="items-center justify-center">
+        <div className='absolute flex my-4 mx-[25vw] md:mx-20 '>
+          <TechevinceLogoBar />
+        </div>
+      </Link>
       <div className='w-full md:w-10/12 bg-customBlue-200 h-screen text-left'>
         <div className='absolute bottom-0 overflow-hidden  w-[100%] h-2/5 z-10'>
           <div className='bg-gradient-to-t from-transparent z-20 to-customBlue-200 w-full md:w-10/12 h-full absolute bottom-0 left-0'></div>
@@ -46,7 +50,7 @@ export default function SoftwareVote() {
             className='absolute bottom-0 left-0 w-full h-full'
           />
         </div>
-        <div className=' relative h-5/6 w-8/12 mx-16 md:mx-20 my-24 z-30'>
+        <div className=' relative h-5/6 w-8/12 mx-[25vw] md:mx-20 my-24 z-30'>
           <p className='text-3xl md:text-5xl font-semibold text-white -tracking-[0.01em] font-body'>
             Software Clubs
           </p>
@@ -102,7 +106,7 @@ export default function SoftwareVote() {
             />
             
           </div>
-          <div className='flex justify-center bg-white w-48 md:w-64 h-12 rounded-3xl mt-16 -ml-4 text-center'>
+          <div className='flex justify-center bg-white w-48 md:w-64 h-12 rounded-3xl mt-16 md:-ml-4 text-center'>
             <p className="text-black font-body font-semibold text-base md:text-2xl -tracking-[0.01em] leading-8 m-2">Sahil Kumar Gupta</p>
           </div>
         </div>
