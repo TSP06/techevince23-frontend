@@ -7,10 +7,10 @@ import Raman from "../assets/raman.png";
 import axios from "axios";
 import { BACKEND_ROUTES } from "../config/urls";
 import { cleanUrl } from "../service/handleImage";
-import LogoutPopup from "../components/logout-popup";
+import Popup from "../components/popup";
 import { useCookies } from "react-cookie";
 import TechevinceLogoBar from "../components/techevince-logo";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { useMemo } from "react";
 
 export default function SoftwareVote() {
@@ -19,6 +19,7 @@ export default function SoftwareVote() {
   const [user, setUser] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [cookies, setCookie, removeCookie] = useCookies(["connect.sid"]);
+  const [flag, setFlag] = useState(false);
 
   const imagesPool = useMemo(() => {
     let images = projects.map((item) => {
@@ -32,8 +33,10 @@ export default function SoftwareVote() {
     return images;
   }, [projects]);
 
-  const randomImage1 = imagesPool[Math.floor(Math.random() * imagesPool.length)];
-  const randomImage2 = imagesPool[Math.floor(Math.random() * imagesPool.length)];
+  const randomImage1 =
+    imagesPool[Math.floor(Math.random() * imagesPool.length)];
+  const randomImage2 =
+    imagesPool[Math.floor(Math.random() * imagesPool.length)];
 
   const loginHandler = () => {
     // set local storage
@@ -79,10 +82,14 @@ export default function SoftwareVote() {
     setShowDescription(true);
   }
   const handleVote = async (projectId) => {
-     try {
-      const res = await axios.post(BACKEND_ROUTES.vote, {
-        projectId,
-      }, { withCredentials: true });
+    try {
+      const res = await axios.post(
+        BACKEND_ROUTES.vote,
+        {
+          projectId,
+        },
+        { withCredentials: true }
+      );
       window.location.reload();
       console.log(res.data);
     } catch (err) {
@@ -145,6 +152,8 @@ export default function SoftwareVote() {
                         }}
                         onClick={() => {
                           handleVote(item._id);
+                          setFlag(true);
+                          setShowModal(true);
                           console.log(item);
                         }}
                       >
@@ -181,10 +190,12 @@ export default function SoftwareVote() {
               data={data}
             />
           </div>
-          <LogoutPopup
+          <Popup
             showModal={showModal}
             setShowModal={setShowModal}
             clearCookie={removeCookie}
+            flag={flag}
+            setFlag={setFlag}
           />
           <div className='flex justify-center bg-white w-48 md:w-64 h-12 rounded-3xl mt-16 -ml-4 text-center'>
             <button
@@ -198,7 +209,6 @@ export default function SoftwareVote() {
             </button>
           </div>
         </div>
-        <div></div>
       </div>
       <div className='w-0 md:w-2/12 bg-white z-20'>
         <div className='-ml-[30%] mt-[45%] lg:mt-[20%] z-40'>
