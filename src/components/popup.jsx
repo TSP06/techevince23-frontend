@@ -8,6 +8,8 @@ const Popup = ({ showModal, setShowModal, clearCookie, flag,setFlag, VoteHandler
   const handleFlag = () => setFlag(false);
   const handleShow = () => setShowModal(true);
 
+  console.log(item);
+
   const handleLogout = async () => {
     // Add code to handle logout
     await axios.get(BACKEND_ROUTES.logout, { withCredentials: true });
