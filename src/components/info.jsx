@@ -1,6 +1,6 @@
 import drone from "../assets/drone.png"
 import drone2 from "../assets/drone2.png"
-import softwareLogo from "../assets/softwareLogo.png"
+import softwareLogo from "../assets/softwareLogo.jpg"
 import hadwareLogo from "../assets/hardwareLogo.png"
 import businessLogo from "../assets/businessLogo.png"
 import frame1 from "../assets/frame1.png"
@@ -113,9 +113,9 @@ export default function Info() {
             project_category.map((item) => {
               return (
                 <Link to={item.page_link}>
-                  <div className='flex flex-col w-full hover:scale-110 transform transition duration-500'>
-                    <div className='relative bg-customBlue-200 bg-opacity-50 hover:bg-opacity-0 transition duration-500'>
-                      <img src={item.img_url} className='relative -z-20' />
+                  <div className='flex h-full w-full hover:scale-110 transform transition duration-500'>
+                    <div className='flex h-full relative bg-customBlue-200 bg-opacity-50 hover:bg-opacity-0 transition duration-500'>
+                      <img src={item.img_url} className='relative -z-20 w-[75vw] md:w-[24vw]' />
                       <div
                         className='absolute transform -rotate-90 text-white text-3xl md:text-5xl font-semibold self-stretch -left-8 md:-left-16 bottom-28 font-ClashDisplay'
                       >

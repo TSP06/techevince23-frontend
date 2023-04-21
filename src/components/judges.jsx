@@ -209,7 +209,7 @@ const Judges = () => {
                     </div>
                   </div>
                 </div>
-                <div className='w-3/4 ml-8 md:ml-14 mr-2 z-20 text-justify'>
+                <div className='w-3/4 ml-8 md:ml-14 mr-2 md:mr-16 z-20 text-justify'>
                   <div>
                     <p className='text-base md:text-2xl font-bold'>{judge.name}</p>
                     <p className='text-sm md:text-xl'>{judge.designation}</p>
@@ -241,12 +241,12 @@ const Judges = () => {
                     })}
                   </div>
                 </div>
-                <div className="w-0 md:w-full">
-                  <div className=' w-full hover:scale-110 transform transition duration-500'>
+                <div className="w-2/4 md:w-1/4 md:h-full -mr-6 ml-2 md:mr-0">
+                  <div className='w-full hover:scale-110 transform transition duration-500'>
                     <div className='relative bg-customBlue-200 bg-opacity-50 hover:bg-opacity-0 transition duration-500'>
-                      <img src={judge.image} className='relative -z-20 h-48 md:h-[360px] w-96' />
+                      <img src={judge.image} className='relative   -z-20 h-32 md:h-[360px] w-96' />
                       <div
-                        className='w-0 md:w-full absolute transform -rotate-90 text-white text-base md:text-3xl font-semibold self-stretch -left-8 md:-left-28 bottom-40 font-ClashDisplay'
+                        className='absolute transform -rotate-90 text-white text-xs md:text-3xl font-semibold md:self-stretch -left-12 md:-left-28 bottom-12 md:bottom-40 font-ClashDisplay'
                       >
                         {judge.name}
                       </div>

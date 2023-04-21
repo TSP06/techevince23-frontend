@@ -22,7 +22,7 @@ const BottomPart = () => {
       </div>
       <div className='relative z-20 w-1/2'>
         <div
-          className='h-full w-full bg-cover bg-no-repeat bg-center'
+          className='h-[40vh] md:h-full w-full bg-cover bg-no-repeat bg-center'
           style={{
             background: `radial-gradient(100% 1098.29% at 100% 50%, #0050FF 0%, rgba(0, 80, 255, 0.5) 100%), url(${BottomPhoto})`,
             transform: "matrix(-1, 0, 0, 1, 0, 0)",
