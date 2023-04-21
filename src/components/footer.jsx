@@ -4,7 +4,7 @@ import TechevinceLogo from "../assets/techevince-logo.svg";
 const Footer = () => {
   return (
     <div>
-      <div className='bg-white md:flex items-center justify-around pt-24 pb-12 md:py-7 mx-[20%] space-y-1'>
+      <div className='bg-white md:flex items-center justify-around pt-8 md:pt-24 pb-12 md:py-7 mx-[20%] space-y-1'>
         <div className='flex md:justify-between items-center text-center justify-center'>
           <img src={TechevinceLogo} alt='techevince-logo' />
           <p className='font-ClashDisplay font-semibold ml-4 text-center'>Techevince 9.0</p>

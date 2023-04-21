@@ -61,7 +61,7 @@ export default function HardwareInfo() {
               {/* <p className='font-ClashDisplay text-2xl font-bold'>
                 Vote Projects
               </p> */}
-              <Link to='/vote-hardware'>
+              <Link to='../vote-hardware'>
               <div className='border-2 text-xl border-white rounded-full p-3 bg-[#333333] font-semibold'>
                 👆🏻{'  '}Click here to Vote
               </div>
@@ -86,7 +86,7 @@ export default function HardwareInfo() {
             <p className='font-ClashDisplay text-2xl font-bold'>
               Vote Projects
             </p>
-            <Link to='/vote-hardware'>
+            <Link to='../vote-hardware'>
             <div className='border-2 border-white rounded-full p-3 bg-[#333333] font-semibold'>
               👆🏻{'  '}Click here to Vote
             </div>

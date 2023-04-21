@@ -178,6 +178,9 @@ export default function BusinessVote() {
               data={data}
             />
           </div>
+          <div className='flex justify-center bg-white w-48 md:w-64 h-12 rounded-3xl mt-16 -ml-4 text-center'>
+            <p className="text-black font-body font-semibold text-base md:text-2xl -tracking-[0.01em] leading-8 m-2">Sahil Kumar Gupta</p>
+          </div>
         </div>
         <div>
             
