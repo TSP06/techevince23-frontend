@@ -13,6 +13,7 @@ import BusinessInfo from "./routes/business-info";
 import HardwareVote from "./routes/hardware-vote";
 import BusinessVote from "./routes/business-vote";
 import SoftwareVote from "./routes/software-vote";
+import Redirect from "./routes/redirect";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
     path: "/vote-business",
     element: <BusinessVote/>
   },
+  {
+    path: "/redirect",
+    element: <Redirect />,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

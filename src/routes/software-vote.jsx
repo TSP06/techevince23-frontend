@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import CodingClub from "../assets/coding-club-logo.png";
 import Vote from "../assets/vote.png";
 import ProjectDescription from "../components/project-description";
 import Grid from "../assets/Group 6.svg";
@@ -8,10 +7,22 @@ import Raman from "../assets/raman.png";
 import axios from "axios";
 import { BACKEND_ROUTES } from "../config/urls";
 import { cleanUrl } from "../service/handleImage";
+import LogoutPopup from "../components/logout-popup";
+import { useCookies } from "react-cookie";
+
 
 export default function SoftwareVote() {
   const [projects, setProjects] = useState([]);
   const [selectedButton, setSelectedButton] = useState(null);
+  const [user, setUser] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [cookies, setCookie, removeCookie] = useCookies(["connect.sid"]);
+
+  const loginHandler = () => {
+    // set local storage
+    localStorage.setItem("redirect", "/vote-software");
+    window.location.href = BACKEND_ROUTES.login;
+  };
 
   useEffect(() => {
     const getProjects = async () => {
@@ -26,17 +37,31 @@ export default function SoftwareVote() {
     getProjects();
   }, []);
 
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const res = await axios.get(`${BACKEND_ROUTES.auth}/current`, {
+          withCredentials: true,
+        });
+        console.log(res.data);
+        setUser(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getUser();
+  }, []);
+
   const [showDescription, setShowDescription] = useState(false);
   const [data, setData] = useState({});
   function handleFunction(prop) {
     setData(prop);
-    setShowDescription(true); 
+    setShowDescription(true);
   }
+
   return (
     <div className='flex'>
-      <div className='absolute'>
-        {/* hanging login button */}
-      </div>
+      <div className='absolute'>{/* hanging login button */}</div>
       <div className='w-full md:w-10/12 bg-customBlue-200 h-screen text-left'>
         <div className='absolute bottom-0 overflow-hidden  w-[100%] h-2/5 z-10'>
           <div className='bg-gradient-to-t from-transparent z-20 to-customBlue-200 w-full md:w-10/12 h-full absolute bottom-0 left-0'></div>
@@ -70,11 +95,12 @@ export default function SoftwareVote() {
                           {item.club.name}
                         </p>
                       </div>
-                      <div className='flex bg-white justify-center w-20 h-12 items-center text-center md:w-32 ml-auto rounded-3xl'
-                      // style={{backgroundColor: selectedButton === item._id ? "#F2F2F2" : "#FFFFFF"}}
-                      // onClick={() => {
-                      //   console.log(item)
-                      // }}
+                      <div
+                        className='flex bg-white justify-center w-20 h-12 items-center text-center md:w-32 ml-auto rounded-3xl'
+                        // style={{backgroundColor: selectedButton === item._id ? "#F2F2F2" : "#FFFFFF"}}
+                        // onClick={() => {
+                        //   console.log(item)
+                        // }}
                       >
                         <p className='text-black font-body font-semibold text-base md:text-2xl -tracking-[0.01em] leading-8 m-2'>
                           Vote
@@ -91,10 +117,18 @@ export default function SoftwareVote() {
               onClose={() => setShowDescription(false)}
               data={data}
             />
-            
           </div>
+          <LogoutPopup showModal={showModal} setShowModal={setShowModal} clearCookie={removeCookie} />
           <div className='flex justify-center bg-white w-48 md:w-64 h-12 rounded-3xl mt-16 -ml-4 text-center'>
-            <p className="text-black font-body font-semibold text-base md:text-2xl -tracking-[0.01em] leading-8 m-2">Sahil Kumar Gupta</p>
+            <button
+              onClick={() => {
+                if (user && user.hasOwnProperty("name")) setShowModal(true);
+                else loginHandler();
+              }}
+              className='text-black font-body font-semibold text-base md:text-2xl -tracking-[0.01em] leading-8 m-2'
+            >
+              {user && user.hasOwnProperty("name") ? user.name : "Login"}
+            </button>
           </div>
         </div>
         <div></div>

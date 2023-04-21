@@ -133,7 +133,7 @@ const Judges = () => {
                     <p className='text-base md:text-2xl font-bold'>
                       {judge.name}
                     </p>
-                    <p className='text-sm md:text-xl'>{judge.designation}</p>
+                    <p className='text-sm md:text-xl'>{judge.designation + ' | ' + judge.company}</p>
                   </div>
                   <br />
                   <br />
