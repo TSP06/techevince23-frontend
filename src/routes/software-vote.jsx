@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import CodingClub from "../assets/coding-club-logo.png";
 import Vote from "../assets/vote.png";
 import ProjectDescription from "../components/project-description";
 import Grid from "../assets/Group 6.svg";
@@ -17,7 +16,6 @@ export default function SoftwareVote() {
     const getProjects = async () => {
       try {
         const res = await axios.get(`${BACKEND_ROUTES.project}/software`);
-        console.log(res.data);
         setProjects(res.data);
       } catch (err) {
         console.log(err);
@@ -32,6 +30,9 @@ export default function SoftwareVote() {
     setData(prop);
     setShowDescription(true); 
   }
+  const handleVote = (buttonId) => {
+    setSelectedButton(buttonId);
+  };
   return (
     <div className='flex'>
       <div className='absolute'>
@@ -53,34 +54,42 @@ export default function SoftwareVote() {
             {projects &&
               projects.map((item, index) => {
                 return (
-                  <div
-                    key={index}
-                    className='hover: cursor-pointer'
+                  <div> 
+                    <div className="flex items-center"> 
+                    <div
+                      key={index}
+                      className='hover: cursor-pointer w-4/5'
+                      onClick={() => {
+                        handleFunction(item);
+                      }}
+                    >
+                      <div className='flex my-4 text-white items-center '>
+                        <img className='h-8' src={cleanUrl(item.club.icons)} />
+                        <div className='ml-4 md:ml-8'>
+                          <p className='font-body font-semibold text-sm md:text-xl md:leading-8 -tracking-[0.01em]'>
+                            {item.name}
+                          </p>
+                          <p className='text-sm md:text-normal'>
+                            {item.club.name}
+                          </p>
+                        </div>
+                        
+                      </div>
+                      
+                    </div>
+                    <div className='flex justify-center w-20 h-12 items-center text-center md:w-32 ml-auto rounded-3xl cursor-pointer'
+                    style={{backgroundColor: selectedButton === item._id ? "#16a34a" : "#ffffff"}}
                     onClick={() => {
-                      handleFunction(item);
+                      handleVote(item._id)
+                      console.log(item)
                     }}
-                  >
-                    <div className='flex my-4 text-white items-center'>
-                      <img className='h-8' src={cleanUrl(item.club.icons)} />
-                      <div className='ml-4 md:ml-8'>
-                        <p className='font-body font-semibold text-sm md:text-xl md:leading-8 -tracking-[0.01em]'>
-                          {item.name}
-                        </p>
-                        <p className='text-sm md:text-normal'>
-                          {item.club.name}
-                        </p>
-                      </div>
-                      <div className='flex bg-white justify-center w-20 h-12 items-center text-center md:w-32 ml-auto rounded-3xl'
-                      // style={{backgroundColor: selectedButton === item._id ? "#F2F2F2" : "#FFFFFF"}}
-                      // onClick={() => {
-                      //   console.log(item)
-                      // }}
-                      >
-                        <p className='text-black font-body font-semibold text-base md:text-2xl -tracking-[0.01em] leading-8 m-2'>
-                          Vote
-                        </p>
-                        <img className='h-0 md:h-fit' src={Vote} />
-                      </div>
+                    >
+                      <p className='text-black font-body font-semibold text-base md:text-2xl -tracking-[0.01em] leading-8 m-2'
+                        style={{color: selectedButton === item._id ? "#ffffff" : "#000000"}}>
+                        Vote
+                      </p>
+                      <img className='h-0 md:h-fit'style={{filter: selectedButton === item._id ? 'brightness(0) saturate(100%) invert(100%)': ''}} src={Vote} />
+                    </div>
                     </div>
                     <hr className='bg-white w-full' />
                   </div>
