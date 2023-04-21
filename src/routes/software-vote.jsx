@@ -121,7 +121,7 @@ export default function SoftwareVote() {
             className='absolute bottom-0 left-0 w-full h-full'
           />
         </div>
-        <div className=' relative h-5/6 w-8/12 mx-[25vw] md:mx-20 my-24 z-30'>
+        <div className=' relative h-5/6 w-8/12 mx-[15vw] md:mx-20 my-24 z-30'>
           <p className='text-3xl md:text-5xl font-semibold text-white -tracking-[0.01em] font-body'>
             Software Clubs
           </p>
@@ -214,7 +214,7 @@ export default function SoftwareVote() {
             VoteHandler={handleVote}
             item = {projectData}
           />
-          <div className='flex justify-center bg-white w-48 md:w-64 h-12 rounded-3xl mt-16 -ml-4 text-center'>
+          <div className='flex justify-center bg-white w-[inherit] mx-auto md:mx-0 md:-ml-4 md:w-64 h-12 rounded-3xl mt-16 text-center'>
             <button
               onClick={() => {
                 if (user && user.hasOwnProperty("name")) setShowModal(true);
