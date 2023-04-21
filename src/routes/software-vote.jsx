@@ -32,6 +32,9 @@ export default function SoftwareVote() {
     setData(prop);
     setShowDescription(true);
   }
+  function handleVote() {
+    console.log("hii")
+  }
   return (
     <div className='flex'>
       <div className='w-full md:w-10/12 bg-customBlue-200 h-screen text-left'>
@@ -67,7 +70,12 @@ export default function SoftwareVote() {
                           {item.club.name}
                         </p>
                       </div>
-                      <div className='flex justify-center bg-white w-20 h-12 items-center text-center md:w-32 ml-auto rounded-3xl'>
+                      <div className='flex justify-center bg-white w-20 h-12 items-center text-center md:w-32 ml-auto rounded-3xl'
+                      onClick={() => {
+                        handleVote();
+  
+                      }}
+                      >
                         <p className='text-black font-body font-semibold text-base md:text-2xl -tracking-[0.01em] leading-8 m-2'>
                           Vote
                         </p>
