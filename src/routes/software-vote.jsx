@@ -11,6 +11,7 @@ import { cleanUrl } from "../service/handleImage";
 
 export default function SoftwareVote() {
   const [projects, setProjects] = useState([]);
+  const [selectedButton, setSelectedButton] = useState(null);
 
   useEffect(() => {
     const getProjects = async () => {
@@ -29,10 +30,7 @@ export default function SoftwareVote() {
   const [data, setData] = useState({});
   function handleFunction(prop) {
     setData(prop);
-    setShowDescription(true);
-  }
-  function handleVote() {
-    console.log("hii")
+    setShowDescription(true); 
   }
   return (
     <div className='flex'>
@@ -72,11 +70,11 @@ export default function SoftwareVote() {
                           {item.club.name}
                         </p>
                       </div>
-                      <div className='flex justify-center bg-white w-20 h-12 items-center text-center md:w-32 ml-auto rounded-3xl'
-                      onClick={() => {
-                        handleVote();
-  
-                      }}
+                      <div className='flex bg-white justify-center w-20 h-12 items-center text-center md:w-32 ml-auto rounded-3xl'
+                      // style={{backgroundColor: selectedButton === item._id ? "#F2F2F2" : "#FFFFFF"}}
+                      // onClick={() => {
+                      //   console.log(item)
+                      // }}
                       >
                         <p className='text-black font-body font-semibold text-base md:text-2xl -tracking-[0.01em] leading-8 m-2'>
                           Vote
