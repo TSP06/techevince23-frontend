@@ -4,6 +4,8 @@ export const cleanUrl = (url) => {
   const googleDriveUrl = 'https://drive.google.com/uc?export=view&id=';
   const googleDriveUrl2 = 'https://drive.google.com/file/d/';
 
+  if(url === null || url === undefined) return null;
+
   if (url.startsWith(googleDriveUrl2)) {
     const id = url.split(googleDriveUrl2)[1].split('/')[0];
     return googleDriveUrl + id;
