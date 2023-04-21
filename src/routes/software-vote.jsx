@@ -3,7 +3,7 @@ import Vote from "../assets/vote.png";
 import ProjectDescription from "../components/project-description";
 import Grid from "../assets/Group 6.svg";
 import Ball from "../components/ball";
-import Raman from "../assets/raman.png";
+import softwareLogo from "../assets/softwareLogo.png";
 import axios from "axios";
 import { BACKEND_ROUTES } from "../config/urls";
 import { cleanUrl } from "../service/handleImage";
@@ -31,7 +31,7 @@ export default function SoftwareVote() {
     // deflating the array
     images = [].concat.apply([], images);
     while (images.length < 2) {
-      images.push(Raman);
+      images.push(softwareLogo);
     }
     return images;
   }, [projects]);
