@@ -8,16 +8,16 @@ const BottomPart = () => {
       <div className='absolute bg-customBlue-200'>
         <GridSideDiv />
       </div>
-      <div className='relative z-20 my-[4.5rem] lg:my-40 px-20'>
+      <div className='relative z-20 my-[4.5rem] lg:my-40 pl-8 md:px-20'>
         <div className='relative'>
-          <p className='text-white text-2lg md:text-5xl font-bold'>
+          <p className='text-white text-2xl md:text-5xl font-bold'>
             {" "}
             See you on 25th March{" "}
           </p>
-          <div className='absolute -bottom-1 -right-6 border-b-8 border-[#333] w-60'></div>
+          <div className='absolute -bottom-1 md:-right-6 border-b-8 border-[#333] w-48 md:w-60'></div>
         </div>
-        <p className='text-white text-2xl font-bold mt-4'>
-          Event reel is not coming
+        <p className='text-white text-base md:text-2xl font-bold mt-4'>
+          Event reel is coming
         </p>
       </div>
       <div className='relative z-20 w-1/2'>

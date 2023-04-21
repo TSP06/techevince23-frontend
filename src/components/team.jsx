@@ -47,7 +47,7 @@ export default function Team() {
           <p className='flex flex-col items-start text-3xl md:text-4xl font-semibold self-stretch mx-14 -mb-3 top-5 left-14 z-10 font-ClashDisplay'>
             Core Team
           </p>
-          <div className='rectangle bg-customBlue-100 h-3 w-36 sm:w-32 mx-14 md:mx-28 top-11 left-28'></div>
+          <div className='rectangle bg-customBlue-100 h-3 w-36 sm:w-36 mx-14 md:mx-28 top-11 left-28'></div>
         </div>
 
         <div className='grid justify-items-center grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-12 w-full mt-12'>

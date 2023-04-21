@@ -13,17 +13,17 @@ export default function Info() {
         {
             img_url: hadwareLogo,
             category: "Hardware",
-            page_link: "www.instagram.com"
+            page_link: "hardware"
         },
         {
             img_url: softwareLogo,
             category: "Software",
-            page_link: "www.instagram.com"
+            page_link: "software"
         },
         {
             img_url: businessLogo,
             category: "Business",
-            page_link: "www.instagram.com"
+            page_link: "business"
         }
     ]
     const [screenWidth, setScreenWidth] = useState(window.innerWidth)
@@ -47,7 +47,7 @@ export default function Info() {
           >
             What is Techevince?
           </p>
-          <div className='rectangle bg-customBlue-100 h-3 w-64 md:w-40 sm:w-56 md:mx-10 sm:mx-28 top-11 left-28'></div>
+          <div className='rectangle bg-customBlue-100 h-3 w-64 md:w-60 sm:w-56 md:mx-32 sm:mx-28 top-11 left-28'></div>
           <p
             className='text-base font-normal text-left flex-wrap leading-6'
             style={{ fontFamily: "GalanoGrotesque", bottom: "4%" }}
@@ -74,7 +74,7 @@ export default function Info() {
           >
             Event Structure
           </p>
-          <div className='rectangle bg-customBlue-100 h-3 w-52 sm:mx-16 top-11 left-28'></div>
+          <div className='rectangle bg-customBlue-100 h-3 w-56 sm:mx-16 top-11 left-28'></div>
           <p
             className='text-base font-normal text-left flex-wrap leading-6'
             style={{ fontFamily: "GalanoGrotesque", bottom: "4%" }}
@@ -105,7 +105,7 @@ export default function Info() {
           >
             Vote Now
           </p>
-          <div className='rectangle bg-customBlue-100 h-3 w-32 sm:w-24 mx-14 sm:mx-28 top-11 left-28'></div>
+          <div className='rectangle bg-customBlue-100 h-3 w-32 sm:w-32 mx-14 sm:mx-28 top-11 left-28'></div>
         </div>
 
         <div className='grid justify-items-center grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 w-full mt-12 pl-1'>
@@ -137,7 +137,7 @@ export default function Info() {
           >
             Event Structure
           </p>
-          <div className='rectangle bg-customBlue-100 h-3 w-52 sm:mx-16 top-11 left-28'></div>
+          <div className='rectangle bg-customBlue-100 h-3 w-56 sm:mx-16 top-11 left-28'></div>
           <p
             className='text-base font-normal text-left flex-wrap leading-6'
             style={{ fontFamily: "GalanoGrotesque", bottom: "4%" }}

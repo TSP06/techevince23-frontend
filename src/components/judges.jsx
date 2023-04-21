@@ -246,7 +246,7 @@ const Judges = () => {
                     <div className='relative bg-customBlue-200 bg-opacity-50 hover:bg-opacity-0 transition duration-500'>
                       <img src={judge.image} className='relative -z-20 h-48 md:h-[360px] w-96' />
                       <div
-                        className='absolute transform -rotate-90 text-white text-base md:text-3xl font-semibold self-stretch -left-8 md:-left-28 bottom-40 font-ClashDisplay'
+                        className='w-0 md:w-full absolute transform -rotate-90 text-white text-base md:text-3xl font-semibold self-stretch -left-8 md:-left-28 bottom-40 font-ClashDisplay'
                       >
                         {judge.name}
                       </div>

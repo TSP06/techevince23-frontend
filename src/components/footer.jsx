@@ -4,13 +4,13 @@ import TechevinceLogo from "../assets/techevince-logo.svg";
 const Footer = () => {
   return (
     <div>
-      <div className='bg-white w-screen flex justify-around py-7'>
-        <div className='flex justify-between items-center'>
+      <div className='bg-white md:flex items-center justify-around py-7 mx-[20%] space-y-1'>
+        <div className='flex md:justify-between items-center'>
           <img src={TechevinceLogo} alt='techevince-logo' />
           <p className='font-ClashDisplay font-semibold ml-4'>Techevince 9.0</p>
         </div>
         <div>
-          <p className='font-GalanoGrotesque'>
+          <p className='font-GalanoGrotesque items-center'>
             © Technical Board IIT Guwahati. All rights reserved
           </p>
         </div>
