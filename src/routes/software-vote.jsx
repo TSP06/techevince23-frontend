@@ -4,12 +4,13 @@ import Vote from "../assets/vote.png";
 import ProjectDescription from "../components/project-description";
 import Grid from "../assets/Group 6.svg";
 import Ball from "../components/ball";
-import Raman from "../assets/raman.png"
+import Raman from "../assets/raman.png";
 import axios from "axios";
 import { BACKEND_ROUTES } from "../config/urls";
+import { cleanUrl } from "../service/handleImage";
 
 export default function SoftwareVote() {
-  const [projects, setProjects] = useState([]); 
+  const [projects, setProjects] = useState([]);
 
   useEffect(() => {
     const getProjects = async () => {
@@ -23,8 +24,6 @@ export default function SoftwareVote() {
     };
     getProjects();
   }, []);
-        
-
 
   const [showDescription, setShowDescription] = useState(false);
   const [data, setData] = useState({});
@@ -37,13 +36,16 @@ export default function SoftwareVote() {
   }
   return (
     <div className='flex'>
+      <div className='absolute'>
+        {/* hanging login button */}
+      </div>
       <div className='w-full md:w-10/12 bg-customBlue-200 h-screen text-left'>
-        <div className='absolute bottom-0 overflow-hidden  w-[100%] h-2/5 z-10' >
-            <div className='bg-gradient-to-t from-transparent z-20 to-customBlue-200 w-full md:w-10/12 h-full absolute bottom-0 left-0'></div>
-            <div
-              style={{ background: `url("${Grid}") no-repeat` }}
-              className='absolute bottom-0 left-0 w-full h-full'
-            />
+        <div className='absolute bottom-0 overflow-hidden  w-[100%] h-2/5 z-10'>
+          <div className='bg-gradient-to-t from-transparent z-20 to-customBlue-200 w-full md:w-10/12 h-full absolute bottom-0 left-0'></div>
+          <div
+            style={{ background: `url("${Grid}") no-repeat` }}
+            className='absolute bottom-0 left-0 w-full h-full'
+          />
         </div>
         <div className=' relative h-5/6 w-8/12 mx-16 md:mx-20 my-24 z-30'>
           <p className='text-3xl md:text-5xl font-semibold text-white -tracking-[0.01em] font-body'>
@@ -61,7 +63,7 @@ export default function SoftwareVote() {
                     }}
                   >
                     <div className='flex my-4 text-white items-center'>
-                      <img className='h-8' src={item.club.icons} />
+                      <img className='h-8' src={cleanUrl(item.club.icons)} />
                       <div className='ml-4 md:ml-8'>
                         <p className='font-body font-semibold text-sm md:text-xl md:leading-8 -tracking-[0.01em]'>
                           {item.name}
@@ -97,11 +99,9 @@ export default function SoftwareVote() {
             <p className="text-black font-body font-semibold text-base md:text-2xl -tracking-[0.01em] leading-8 m-2">Sahil Kumar Gupta</p>
           </div>
         </div>
-        <div>
-            
-        </div>
+        <div></div>
       </div>
-      <div className="w-0 md:w-2/12 bg-white z-20">
+      <div className='w-0 md:w-2/12 bg-white z-20'>
         <div className='-ml-[30%] mt-[45%] lg:mt-[20%] z-40'>
           <Ball image={Raman} />
         </div>

@@ -1,45 +1,20 @@
 import person from "../assets/raman.png";
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Grid from "../assets/Group 6.svg";
+import axios from "axios";
+import { BACKEND_ROUTES } from "../config/urls";
 
 export default function Team() {
-  const team = [
-    {
-      name: "Aman Kumar",
-      img: person,
-      club: "Techboard",
-      post: "Web Developer",
-      alt: "aman",
-    },
-    {
-      name: "Aman Kumar",
-      img: person,
-      club: "Techboard",
-      post: "Web Developer",
-      alt: "aman",
-    },
-    {
-      name: "Aman Kumar",
-      img: person,
-      club: "Techboard",
-      post: "Web Developer",
-      alt: "aman",
-    },
-    {
-      name: "Aman Kumar",
-      img: person,
-      club: "Techboard",
-      post: "Web Developer",
-      alt: "aman",
-    },
-    {
-      name: "Aman Kumar",
-      img: person,
-      club: "Techboard",
-      post: "Web Developer",
-      alt: "aman",
-    },
-  ];
+  const [team, setTeam] = useState([]);
+
+  useEffect(() => {
+    const getTeam = async () => {
+      const res = await axios.get(BACKEND_ROUTES.team);
+      setTeam(res.data);
+    };
+    getTeam();
+  }, []);
+
   return (
     <div>
       <div className=' flex flex-col'>
@@ -57,8 +32,8 @@ export default function Team() {
                 <div className='flex flex-col w-3/4 hover:scale-110 transform transition duration-500'>
                   <div className=' bg-customBlue-200 bg-opacity-50 hover:bg-opacity-0 transition duration-500'>
                     <img
-                      src={item.img}
-                      alt={item.alt}
+                      src={item.image}
+                      alt={'image'}
                       className='relative -z-20'
                     />
                   </div>
@@ -73,7 +48,7 @@ export default function Team() {
                     />
                     <h1 className='font-semibold text-2xl py-3'>{item.name}</h1>
                     <p className='text-base font-bold'>Technical Board</p>
-                    <p className='text-xs font-normal pb-3'>{item.post}</p>
+                    <p className='text-xs font-normal pb-3'>{item.designation}</p>
                   </div>
                 </div>
               );
