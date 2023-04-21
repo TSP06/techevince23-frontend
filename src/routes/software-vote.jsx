@@ -11,6 +11,7 @@ import LogoutPopup from "../components/logout-popup";
 import { useCookies } from "react-cookie";
 import TechevinceLogoBar from "../components/techevince-logo";
 import {Link} from 'react-router-dom';
+import { useMemo } from "react";
 
 export default function SoftwareVote() {
   const [projects, setProjects] = useState([]);
@@ -18,6 +19,21 @@ export default function SoftwareVote() {
   const [user, setUser] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [cookies, setCookie, removeCookie] = useCookies(["connect.sid"]);
+
+  const imagesPool = useMemo(() => {
+    let images = projects.map((item) => {
+      return item.images.map((image) => cleanUrl(image));
+    });
+    // deflating the array
+    images = [].concat.apply([], images);
+    while (images.length < 2) {
+      images.push(Raman);
+    }
+    return images;
+  }, [projects]);
+
+  const randomImage1 = imagesPool[Math.floor(Math.random() * imagesPool.length)];
+  const randomImage2 = imagesPool[Math.floor(Math.random() * imagesPool.length)];
 
   const loginHandler = () => {
     // set local storage
@@ -76,7 +92,7 @@ export default function SoftwareVote() {
 
   return (
     <div className='flex'>
-      <Link to ="/" className="items-center justify-center">
+      <Link to='/' className='items-center justify-center'>
         <div className='absolute flex my-4 mx-[25vw] md:mx-20 '>
           <TechevinceLogoBar />
         </div>
@@ -97,42 +113,63 @@ export default function SoftwareVote() {
             {projects &&
               projects.map((item, index) => {
                 return (
-                  <div> 
-                    <div className="flex items-center"> 
-                    <div
-                      key={index}
-                      className='hover: cursor-pointer w-4/5'
-                      onClick={() => {
-                        handleFunction(item);
-                      }}
-                    >
-                      <div className='flex my-4 text-white items-center '>
-                        <img className='h-8' src={cleanUrl(item.club.icons)} />
-                        <div className='ml-4 md:ml-8'>
-                          <p className='font-body font-semibold text-sm md:text-xl md:leading-8 -tracking-[0.01em]'>
-                            {item.name}
-                          </p>
-                          <p className='text-sm md:text-normal'>
-                            {item.club.name}
-                          </p>
+                  <div>
+                    <div className='flex items-center'>
+                      <div
+                        key={index}
+                        className='hover: cursor-pointer w-4/5'
+                        onClick={() => {
+                          handleFunction(item);
+                        }}
+                      >
+                        <div className='flex my-4 text-white items-center '>
+                          <img
+                            className='h-8'
+                            src={cleanUrl(item.club.icons)}
+                          />
+                          <div className='ml-4 md:ml-8'>
+                            <p className='font-body font-semibold text-sm md:text-xl md:leading-8 -tracking-[0.01em]'>
+                              {item.name}
+                            </p>
+                            <p className='text-sm md:text-normal'>
+                              {item.club.name}
+                            </p>
+                          </div>
                         </div>
-                        
                       </div>
-                      
-                    </div>
-                    <div className='flex justify-center w-20 h-12 items-center text-center md:w-32 ml-auto rounded-3xl cursor-pointer'
-                    style={{backgroundColor: selectedButton === item._id ? "#16a34a" : "#ffffff"}}
-                    onClick={() => {
-                      handleVote(item._id)
-                      console.log(item)
-                    }}
-                    >
-                      <p className='text-black font-body font-semibold text-base md:text-2xl -tracking-[0.01em] leading-8 m-2'
-                        style={{color: selectedButton === item._id ? "#ffffff" : "#000000"}}>
-                        Vote
-                      </p>
-                      <img className='h-0 md:h-fit'style={{filter: selectedButton === item._id ? 'brightness(0) saturate(100%) invert(100%)': ''}} src={Vote} />
-                    </div>
+                      <div
+                        className='flex justify-center w-20 h-12 items-center text-center md:w-32 ml-auto rounded-3xl cursor-pointer'
+                        style={{
+                          backgroundColor:
+                            selectedButton === item._id ? "#16a34a" : "#ffffff",
+                        }}
+                        onClick={() => {
+                          handleVote(item._id);
+                          console.log(item);
+                        }}
+                      >
+                        <p
+                          className='text-black font-body font-semibold text-base md:text-2xl -tracking-[0.01em] leading-8 m-2'
+                          style={{
+                            color:
+                              selectedButton === item._id
+                                ? "#ffffff"
+                                : "#000000",
+                          }}
+                        >
+                          Vote
+                        </p>
+                        <img
+                          className='h-0 md:h-fit'
+                          style={{
+                            filter:
+                              selectedButton === item._id
+                                ? "brightness(0) saturate(100%) invert(100%)"
+                                : "",
+                          }}
+                          src={Vote}
+                        />
+                      </div>
                     </div>
                     <hr className='bg-white w-full' />
                   </div>
@@ -144,7 +181,11 @@ export default function SoftwareVote() {
               data={data}
             />
           </div>
-          <LogoutPopup showModal={showModal} setShowModal={setShowModal} clearCookie={removeCookie} />
+          <LogoutPopup
+            showModal={showModal}
+            setShowModal={setShowModal}
+            clearCookie={removeCookie}
+          />
           <div className='flex justify-center bg-white w-48 md:w-64 h-12 rounded-3xl mt-16 -ml-4 text-center'>
             <button
               onClick={() => {
@@ -161,10 +202,10 @@ export default function SoftwareVote() {
       </div>
       <div className='w-0 md:w-2/12 bg-white z-20'>
         <div className='-ml-[30%] mt-[45%] lg:mt-[20%] z-40'>
-          <Ball image={Raman} />
+          <Ball image={randomImage1} bgColor={"white"} borderBool={true} />
         </div>
         <div className='-ml-[30%] mt-[35%] lg:mt-[20%] z-[10] relative'>
-          <Ball image={Raman} />
+          <Ball image={randomImage2} bgColor={"white"} borderBool={true} />
         </div>
       </div>
     </div>
