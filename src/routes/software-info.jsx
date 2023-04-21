@@ -59,7 +59,7 @@ export default function SoftwareInfo() {
               {/* <p className='font-ClashDisplay text-2xl font-bold'>
                 Vote Projects
               </p> */}
-              <Link to='/vote-software'>
+              <Link to='../vote-software'>
               <div className='border-2 text-xl border-white rounded-full p-3 bg-[#333333] font-semibold'>
                 👆🏻{'  '}Click here to Vote
               </div>
@@ -83,7 +83,7 @@ export default function SoftwareInfo() {
             <p className='font-ClashDisplay text-2xl font-bold'>
               Vote Projects
             </p>
-            <Link to='/vote-software'>
+            <Link to='../vote-software'>
             <div className='border-2 border-white rounded-full p-3 bg-[#333333] font-semibold'>
               👆🏻{'  '}Click here to Vote
             </div>
