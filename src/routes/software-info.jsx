@@ -32,6 +32,11 @@ export default function SoftwareInfo() {
      };
      getImages();
    }, []);
+   const indices =[
+    Math.floor(((Math.random() + Math.random())/2) * images.length),
+    Math.floor(Math.random() * images.length),
+    Math.floor(Math.random() * images.length)
+   ];
 
   return (
     <div className='flex bg-white z-0'>
@@ -71,13 +76,13 @@ export default function SoftwareInfo() {
       <div className='z-30 md:w-7/12 w-0 bg-white'>
         <div className='ml-12 flex h-full relative overflow-hidden'>
           <div className='absolute top-10 left-0 z-20 bounce'>
-            <Ball image={images[0].link} />
+            <Ball image={images[indices[0]].link} />
           </div>
           <div className='absolute top-10 right-0 z-20 bounce-dia'>
-            <Ball image={images[1].link} />
+            <Ball image={images[indices[1]].link} />
           </div>
           <div className='absolute top-10 left-0 z-20 bounce-rotate'>
-            <Ball image={images[2].link} />
+            <Ball image={images[indices[2]].link} />
           </div>
           <div className='mr-12 self-end mb-20 bg-customBlue-200 rounded-full w-full p-5 flex justify-between items-center text-white'>
             <p className='font-ClashDisplay text-2xl font-bold'>

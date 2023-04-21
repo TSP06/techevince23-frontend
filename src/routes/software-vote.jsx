@@ -34,7 +34,7 @@ export default function SoftwareVote() {
   }, [projects]);
 
   const randomImage1 =
-    imagesPool[Math.floor(Math.random() * imagesPool.length)];
+    imagesPool[Math.floor(((Math.random() + Math.random())/2) * imagesPool.length)];
   const randomImage2 =
     imagesPool[Math.floor(Math.random() * imagesPool.length)];
 
