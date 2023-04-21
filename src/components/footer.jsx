@@ -4,17 +4,17 @@ import TechevinceLogo from "../assets/techevince-logo.svg";
 const Footer = () => {
   return (
     <div>
-      <div className='bg-white md:flex items-center justify-around py-7 mx-[20%] space-y-1'>
-        <div className='flex md:justify-between items-center'>
+      <div className='bg-white md:flex items-center justify-around pt-24 pb-12 md:py-7 mx-[20%] space-y-1'>
+        <div className='flex md:justify-between items-center text-center justify-center'>
           <img src={TechevinceLogo} alt='techevince-logo' />
-          <p className='font-ClashDisplay font-semibold ml-4'>Techevince 9.0</p>
+          <p className='font-ClashDisplay font-semibold ml-4 text-center'>Techevince 9.0</p>
         </div>
         <div>
-          <p className='font-GalanoGrotesque items-center'>
+          <p className='font-GalanoGrotesque items-center text-center'>
             © Technical Board IIT Guwahati. All rights reserved
           </p>
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center text-center justify-center">
           <div className='flex gap-4'>
             <a
               href='https://www.facebook.com/techevince'

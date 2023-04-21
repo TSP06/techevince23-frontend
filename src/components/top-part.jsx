@@ -4,6 +4,8 @@ import GridTopDiv from "./grid-div";
 import TechevinceLogoBar from "./techevince-logo";
 import Raman from "../assets/raman.png";
 import "./bounce.css";
+import Business from "../assets/businessLogo.png";
+import Software from "../assets/softwareLogo.jpg";
 
 const TopPart = () => {
   return (
@@ -14,10 +16,10 @@ const TopPart = () => {
           <GridTopDiv />
         </div>
         <div className='absolute bottom-44 right-0 z-20 bounce-oppisite'>
-          <Ball image={Raman}/>
+            <Ball image={Business}/>
         </div>
         <div className='absolute top-20 lg:left-80 md:left-40 left-20 z-20 bounce'>
-          <Ball image={Raman} />
+          <Ball image={Software} />
         </div>
         <div className='absolute top-20 left-0 z-20 bounce-rotate'>
           <Ball image={Raman} />
