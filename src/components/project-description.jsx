@@ -73,7 +73,7 @@ import { cleanUrl } from "../service/handleImage";
    ),
  };
 
-export default function ProjectDescription({ isVisible, onClose, data }) {
+export default function ProjectDescription({ isVisible, onClose, data, VoteHandler, loggedBool, voteBool, selectedButton }) {
   if (!isVisible) return null;
   const handleClose = (e) => {
     if (e.target.id === "wrapper") onClose();
@@ -161,8 +161,27 @@ export default function ProjectDescription({ isVisible, onClose, data }) {
             <div className='absolute bottom-40 left-32 z-20'>
               <Ball image={cleanUrl(data.images[2])} bgColor='white' />
             </div>
-            <div className='self-end mb-20 bg-customBlue-200 rounded-full w-full p-5 flex justify-center items-center text-white'>
-              <p className='font-ClashDisplay text-2xl font-bold'>Vote Now</p>
+            <div className='self-end mb-20 bg-customBlue-200 rounded-full w-full p-5 flex justify-center items-center text-white'
+            style={{
+              backgroundColor: loggedBool === false ? "grey" : selectedButton === data._id ? "#16a34a" : "#2563eb",
+              cursor: loggedBool === false ? "not-allowed" : selectedButton === data._id ? "not-allowed": "pointer",
+            }}
+            onClick={() => {
+              if(loggedBool === false || selectedButton === data._id ) return;
+              VoteHandler(data._id);
+              return;
+            }}
+            >
+              {selectedButton === data._id &&
+                <p className='font-ClashDisplay text-2xl font-bold'>
+                  Voted
+                </p>
+              }
+              {selectedButton != data._id &&
+                <p className='font-ClashDisplay text-2xl font-bold'>
+                  Vote Now
+                </p>
+              }
             </div>
           </div>
         </div>
