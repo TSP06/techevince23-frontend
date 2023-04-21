@@ -7,7 +7,7 @@ import Raman from "../assets/raman.png";
 import axios from "axios";
 import { BACKEND_ROUTES } from "../config/urls";
 import { cleanUrl } from "../service/handleImage";
-import LogoutPopup from "../components/logout-popup";
+import Popup from "../components/popup";
 import { useCookies } from "react-cookie";
 import TechevinceLogoBar from "../components/techevince-logo";
 import {Link} from 'react-router-dom';
@@ -18,6 +18,7 @@ export default function SoftwareVote() {
   const [user, setUser] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [cookies, setCookie, removeCookie] = useCookies(["connect.sid"]);
+  const [flag, setFlag] = useState(false);
 
   const loginHandler = () => {
     // set local storage
@@ -111,6 +112,8 @@ export default function SoftwareVote() {
                     style={{backgroundColor: selectedButton === item._id ? "#16a34a" : "#ffffff"}}
                     onClick={() => {
                       handleVote(item._id)
+                      setFlag(true)
+                      setShowModal(true)
                       console.log(item)
                     }}
                     >
@@ -131,7 +134,7 @@ export default function SoftwareVote() {
               data={data}
             />
           </div>
-          <LogoutPopup showModal={showModal} setShowModal={setShowModal} clearCookie={removeCookie} />
+          <Popup showModal={showModal} setShowModal={setShowModal} clearCookie={removeCookie} flag = {flag} setFlag = {setFlag} />
           <div className='flex justify-center bg-white w-48 md:w-64 h-12 rounded-3xl mt-16 -ml-4 text-center'>
             <button
               onClick={() => {

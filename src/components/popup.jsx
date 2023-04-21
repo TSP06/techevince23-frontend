@@ -3,8 +3,9 @@ import { useState } from "react";
 import axios from "axios";
 import { BACKEND_ROUTES } from "../config/urls";
 
-const LogoutPopup = ({ showModal, setShowModal, clearCookie }) => {
+const Popup = ({ showModal, setShowModal, clearCookie, flag,setFlag }) => {
   const handleClose = () => setShowModal(false);
+  const handleFlag = () => setFlag(false);
   const handleShow = () => setShowModal(true);
 
   const handleLogout = async () => {
@@ -15,6 +16,17 @@ const LogoutPopup = ({ showModal, setShowModal, clearCookie }) => {
     window.location.href = window.location.origin;
   };
 
+  const handleVote = async () =>{
+    handleFlag();
+    handleClose();
+  }
+
+  const handleVoteCancel = () =>{
+    handleFlag();
+    handleClose();
+  }
+
+
   return (
     <>
       {showModal && (
@@ -22,23 +34,25 @@ const LogoutPopup = ({ showModal, setShowModal, clearCookie }) => {
           <div className='flex items-center justify-center min-h-screen'>
             <div className='bg-white rounded-lg p-8'>
               <div className='mb-4'>
-                <h1 className='font-bold text-xl'>Logout Confirmation</h1>
-                <p className='text-gray-500'>
-                  Are you sure you want to log out?
-                </p>
+                {flag == true ? <h1 className='font-bold text-xl'>Vote Confirmation</h1> :
+                                <h1 className='font-bold text-xl'>Logout Confirmation</h1>
+                }
+                {flag == true ? <p className='text-gray-500'>Are you sure you want to delete your vote?</p> :
+                  <p className='text-gray-500'>Are you sure you want to log out?</p>
+                }
               </div>
               <div className='flex justify-end'>
                 <button
                   className='bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded mr-2'
-                  onClick={handleClose}
+                  onClick={handleVoteCancel}
                 >
                   Cancel
                 </button>
                 <button
                   className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded'
-                  onClick={handleLogout}
+                  onClick={flag == true ? handleVote :handleLogout}
                 >
-                  Logout
+                  {flag == true ? "Change Vote" : "Logout"}
                 </button>
               </div>
             </div>
@@ -49,4 +63,4 @@ const LogoutPopup = ({ showModal, setShowModal, clearCookie }) => {
   );
 };
 
-export default LogoutPopup;
+export default Popup;
