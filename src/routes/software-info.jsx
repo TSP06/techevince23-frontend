@@ -5,38 +5,35 @@ import softwareLogo from "../assets/softwareLogo.jpg";
 import axios from "axios";
 import { BACKEND_ROUTES } from "../config/urls";
 import { Link } from "react-router-dom";
+import { cleanUrl } from "../service/handleImage";
 
 export default function SoftwareInfo() {
+  const [images, setImages] = useState([
+    softwareLogo,
+    softwareLogo,
+    softwareLogo,
+  ]);
 
-   const [images, setImages] = useState([
-     {
-       alt: "image1",
-       link: softwareLogo,
-     },
-     {
-       alt: "image2",
-       link: softwareLogo,
-     },
-     {
-       alt: "image3",
-       link: softwareLogo,
-     },
-   ]);
-
-   useEffect(() => {
-     const getImages = async () => {
-       const res = await axios.get(`${BACKEND_ROUTES.gallery}/software`);
-       if (res.data.length >= 3) {
-         setImages(res.data);
-       }
-     };
-     getImages();
-   }, []);
-   const indices =[
-    Math.floor(((Math.random() + Math.random())/2) * images.length),
+  useEffect(() => {
+    const getImages = async () => {
+      const res = await axios.get(`${BACKEND_ROUTES.project}/software`);
+      let images = res.data.map((item) => {
+        return item.images.map((image) => cleanUrl(image));
+      });
+      // deflating the array
+      images = [].concat.apply([], images);
+      while (images.length < 3) {
+        images.push(softwareLogo);
+      }
+      setImages(images);
+    };
+    getImages();
+  }, []);
+  const indices = [
+    Math.floor(((Math.random() + Math.random()) / 2) * images.length),
     Math.floor(Math.random() * images.length),
-    Math.floor(Math.random() * images.length)
-   ];
+    Math.floor(Math.random() * images.length),
+  ];
 
   return (
     <div className='flex bg-white z-0'>
@@ -57,17 +54,21 @@ export default function SoftwareInfo() {
           <br />
           <br />
           <p className='text-white text-xl md:text-base leading-6'>
-          With the power of math and algorithms, IITG's software clubs have nursed their abilities to predict the future, analyse the present and reinvent the past. From simulations of the campus to complex artificial intelligence systems, get ready to see the true power of code and tenacity in Techevince 9.0.
+            With the power of math and algorithms, IITG's software clubs have
+            nursed their abilities to predict the future, analyse the present
+            and reinvent the past. From simulations of the campus to complex
+            artificial intelligence systems, get ready to see the true power of
+            code and tenacity in Techevince 9.0.
           </p>
-          <div className="relative md:invisible w-5/6 mt-8 items-center justify-center text-center z-50">
+          <div className='relative md:invisible w-5/6 mt-8 items-center justify-center text-center z-50'>
             <div className='mr-12 self-end mb-20 bg-customBlue-200 rounded-full w-full py-8 text-white'>
               {/* <p className='font-ClashDisplay text-2xl font-bold'>
                 Vote Projects
               </p> */}
               <Link to='../vote-software'>
-              <div className='border-2 text-xl border-white rounded-full p-3 bg-[#333333] font-semibold'>
-                👆🏻{'  '}Click here to Vote
-              </div>
+                <div className='border-2 text-xl border-white rounded-full p-3 bg-[#333333] font-semibold'>
+                  👆🏻{"  "}Click here to Vote
+                </div>
               </Link>
             </div>
           </div>
@@ -76,22 +77,22 @@ export default function SoftwareInfo() {
       <div className='z-30 md:w-7/12 w-0 bg-white'>
         <div className='ml-12 flex h-full relative overflow-hidden'>
           <div className='absolute top-10 left-0 z-20 bounce'>
-            <Ball image={images[indices[0]].link} />
+            <Ball image={images[indices[0]]} />
           </div>
           <div className='absolute top-10 right-0 z-20 bounce-dia'>
-            <Ball image={images[indices[1]].link} />
+            <Ball image={images[indices[1]]} />
           </div>
           <div className='absolute top-10 left-0 z-20 bounce-rotate'>
-            <Ball image={images[indices[2]].link} />
+            <Ball image={images[indices[2]]} />
           </div>
           <div className='mr-12 self-end mb-20 bg-customBlue-200 rounded-full w-full p-5 flex justify-between items-center text-white'>
             <p className='font-ClashDisplay text-2xl font-bold'>
               Vote Projects
             </p>
             <Link to='../vote-software'>
-            <div className='border-2 border-white rounded-full p-3 bg-[#333333] font-semibold'>
-              👆🏻{'  '}Click here to Vote
-            </div>
+              <div className='border-2 border-white rounded-full p-3 bg-[#333333] font-semibold'>
+                👆🏻{"  "}Click here to Vote
+              </div>
             </Link>
           </div>
         </div>
