@@ -6,6 +6,7 @@ import Grid from "../assets/Group 6.svg";
 import Ball from "../components/ball";
 import Raman from "../assets/raman.png";
 import {Link} from 'react-router-dom';
+import TechevinceLogoBar from "../components/techevince-logo";
 
 export default function HardwareVote() {
   const projects = [
