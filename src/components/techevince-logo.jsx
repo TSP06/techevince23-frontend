@@ -1,5 +1,5 @@
 import React from 'react';
-import TechevinceLogo from '../assets/techboard-logo.svg';
+import TechevinceLogo from '../assets/techevince-logo.svg';
 
 const TechevinceLogoBar = () => {
   return (
