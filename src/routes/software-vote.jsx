@@ -9,7 +9,8 @@ import { BACKEND_ROUTES } from "../config/urls";
 import { cleanUrl } from "../service/handleImage";
 import LogoutPopup from "../components/logout-popup";
 import { useCookies } from "react-cookie";
-
+import TechevinceLogoBar from "../components/techevince-logo";
+import {Link} from 'react-router-dom';
 
 export default function SoftwareVote() {
   const [projects, setProjects] = useState([]);
@@ -28,7 +29,6 @@ export default function SoftwareVote() {
     const getProjects = async () => {
       try {
         const res = await axios.get(`${BACKEND_ROUTES.project}/software`);
-        console.log(res.data);
         setProjects(res.data);
       } catch (err) {
         console.log(err);
@@ -58,10 +58,16 @@ export default function SoftwareVote() {
     setData(prop);
     setShowDescription(true);
   }
-
+  const handleVote = (buttonId) => {
+    setSelectedButton(buttonId);
+  };
   return (
     <div className='flex'>
-      <div className='absolute'>{/* hanging login button */}</div>
+      <Link to ="/" className="items-center justify-center">
+        <div className='absolute flex my-4 mx-[25vw] md:mx-20 '>
+          <TechevinceLogoBar />
+        </div>
+      </Link>
       <div className='w-full md:w-10/12 bg-customBlue-200 h-screen text-left'>
         <div className='absolute bottom-0 overflow-hidden  w-[100%] h-2/5 z-10'>
           <div className='bg-gradient-to-t from-transparent z-20 to-customBlue-200 w-full md:w-10/12 h-full absolute bottom-0 left-0'></div>
@@ -70,7 +76,7 @@ export default function SoftwareVote() {
             className='absolute bottom-0 left-0 w-full h-full'
           />
         </div>
-        <div className=' relative h-5/6 w-8/12 mx-16 md:mx-20 my-24 z-30'>
+        <div className=' relative h-5/6 w-8/12 mx-[25vw] md:mx-20 my-24 z-30'>
           <p className='text-3xl md:text-5xl font-semibold text-white -tracking-[0.01em] font-body'>
             Software Clubs
           </p>
@@ -78,35 +84,42 @@ export default function SoftwareVote() {
             {projects &&
               projects.map((item, index) => {
                 return (
-                  <div
-                    key={index}
-                    className='hover: cursor-pointer'
+                  <div> 
+                    <div className="flex items-center"> 
+                    <div
+                      key={index}
+                      className='hover: cursor-pointer w-4/5'
+                      onClick={() => {
+                        handleFunction(item);
+                      }}
+                    >
+                      <div className='flex my-4 text-white items-center '>
+                        <img className='h-8' src={cleanUrl(item.club.icons)} />
+                        <div className='ml-4 md:ml-8'>
+                          <p className='font-body font-semibold text-sm md:text-xl md:leading-8 -tracking-[0.01em]'>
+                            {item.name}
+                          </p>
+                          <p className='text-sm md:text-normal'>
+                            {item.club.name}
+                          </p>
+                        </div>
+                        
+                      </div>
+                      
+                    </div>
+                    <div className='flex justify-center w-20 h-12 items-center text-center md:w-32 ml-auto rounded-3xl cursor-pointer'
+                    style={{backgroundColor: selectedButton === item._id ? "#16a34a" : "#ffffff"}}
                     onClick={() => {
-                      handleFunction(item);
+                      handleVote(item._id)
+                      console.log(item)
                     }}
-                  >
-                    <div className='flex my-4 text-white items-center'>
-                      <img className='h-8' src={cleanUrl(item.club.icons)} />
-                      <div className='ml-4 md:ml-8'>
-                        <p className='font-body font-semibold text-sm md:text-xl md:leading-8 -tracking-[0.01em]'>
-                          {item.name}
-                        </p>
-                        <p className='text-sm md:text-normal'>
-                          {item.club.name}
-                        </p>
-                      </div>
-                      <div
-                        className='flex bg-white justify-center w-20 h-12 items-center text-center md:w-32 ml-auto rounded-3xl'
-                        // style={{backgroundColor: selectedButton === item._id ? "#F2F2F2" : "#FFFFFF"}}
-                        // onClick={() => {
-                        //   console.log(item)
-                        // }}
-                      >
-                        <p className='text-black font-body font-semibold text-base md:text-2xl -tracking-[0.01em] leading-8 m-2'>
-                          Vote
-                        </p>
-                        <img className='h-0 md:h-fit' src={Vote} />
-                      </div>
+                    >
+                      <p className='text-black font-body font-semibold text-base md:text-2xl -tracking-[0.01em] leading-8 m-2'
+                        style={{color: selectedButton === item._id ? "#ffffff" : "#000000"}}>
+                        Vote
+                      </p>
+                      <img className='h-0 md:h-fit'style={{filter: selectedButton === item._id ? 'brightness(0) saturate(100%) invert(100%)': ''}} src={Vote} />
+                    </div>
                     </div>
                     <hr className='bg-white w-full' />
                   </div>
