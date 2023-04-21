@@ -45,6 +45,10 @@ export default function SoftwareVote() {
         });
         console.log(res.data);
         setUser(res.data);
+
+        if (res.data) {
+          setSelectedButton(res.data.softwareVote);
+        }
       } catch (err) {
         console.log(err);
       }
@@ -58,9 +62,18 @@ export default function SoftwareVote() {
     setData(prop);
     setShowDescription(true);
   }
-  const handleVote = (buttonId) => {
-    setSelectedButton(buttonId);
+  const handleVote = async (projectId) => {
+     try {
+      const res = await axios.post(BACKEND_ROUTES.vote, {
+        projectId,
+      }, { withCredentials: true });
+      window.location.reload();
+      console.log(res.data);
+    } catch (err) {
+      console.log(err);
+    }
   };
+
   return (
     <div className='flex'>
       <Link to ="/" className="items-center justify-center">
