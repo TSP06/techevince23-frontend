@@ -27,7 +27,7 @@ export default function ProjectDescription({ isVisible, onClose, data }) {
             <br />
             <div className='flex mb-2 md:mb-6'>
               <p className='text-2xl md:text-5xl font-semibold text-white -tracking-[0.01em] leading-tight font-body mr-2 md:mr-4'>
-                {data.project_name}
+                {data.name}
               </p>
               <div
                 className='h-8 md:h-12'
@@ -36,32 +36,32 @@ export default function ProjectDescription({ isVisible, onClose, data }) {
               <div className='ml-2 md:ml-4 -mt-1 md:-mt-2'>
                 <p className='text-xs md:text-sm'>Stall No.</p>
                 <p className='text:2xl md:text-4xl font-semibold'>
-                  {data.stall_no}
+                  {data.booth}
                 </p>
               </div>
             </div>
             <p className='font-semibold md:text-base md:leading-4 mb-2'>
               About Project
             </p>
-            <p className='text-sm md:text-base mb-2 md:mb-4'>{data.about}</p>
+            <p className='text-sm md:text-base mb-2 md:mb-4'>{data.description}</p>
             <p className='font-semibold md:text-base md:leading-6 mb-2'>
               Other Details
             </p>
             <p className='text-sm md:text-base mb-4 md:mb-4'>
-              {data.other_details}
+              {data.description}
             </p>
             <div className='flex items-center h-10 md:h-12'>
               <img className='h-full' src={data.img_url} />
               <div className='ml-4'>
                 <p className='font-body font-semibold text-base md:leading-4 -tracking-[0.01em]'>
-                  {data.club_name}
+                  {data.club.name}
                 </p>
                 <p className='text-sm'>IIT Guwahati</p>
               </div>
             </div>
             <div className='flex mt-6 mb-6'>
               <p className='font-semibold text-base leading-6 mr-4'>Team:</p>
-              <p className='text-base'>{data.team}</p>
+              <p className='text-base'>{data.teamMembers.join(', ')}</p>
             </div>
             <div className='bg-white w-48 md:w-64 h-12 rounded-3xl'></div>
           </div>

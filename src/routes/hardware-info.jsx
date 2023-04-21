@@ -1,9 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Grid from "../assets/Group 6.svg";
 import Ball from "../components/ball";
-import Raman from "../assets/raman.png";
-
+import hardwareLogo from "../assets/hardwareLogo.png";
+import axios from "axios";
+import { BACKEND_ROUTES, BACKEND_URL } from "../config/urls";
 export default function HardwareInfo() {
+  const [images, setImages] = useState([
+    {
+      alt: "image1",
+      link: hardwareLogo,
+    },
+    {
+      alt: "image2",
+      link: hardwareLogo,
+    },
+    {
+      alt: "image3",
+      link: hardwareLogo,
+    },
+  ]);
+
+  useEffect(() => {
+    const getImages = async () => {
+      const res = await axios.get(`${BACKEND_ROUTES.gallery}/hardware`);
+      if (res.data.length >= 3) {
+        setImages(res.data);
+      }
+    };
+    getImages();
+  }, []);
+
   return (
     <div className='flex bg-white z-0'>
       <div className='w-full md:w-5/12 bg-customBlue-200 h-screen items-center text-left'>
@@ -34,13 +60,13 @@ export default function HardwareInfo() {
       <div className='z-30 md:w-7/12 w-0 bg-white'>
         <div className='ml-12 flex h-full relative overflow-hidden'>
           <div className='absolute top-10 left-0 z-20 bounce'>
-            <Ball image={Raman} />
+            <Ball image={images[0].link} />
           </div>
           <div className='absolute top-10 right-0 z-20 bounce-dia'>
-            <Ball image={Raman} />
+            <Ball image={images[1].link} />
           </div>
           <div className='absolute top-10 left-0 z-20 bounce-rotate'>
-            <Ball image={Raman} />
+            <Ball image={images[2].link} />
           </div>
           <div className='mr-12 self-end mb-20 bg-customBlue-200 rounded-full w-full p-5 flex justify-between items-center text-white'>
             <p className='font-ClashDisplay text-2xl font-bold'>

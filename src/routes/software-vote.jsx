@@ -5,122 +5,27 @@ import ProjectDescription from "../components/project-description";
 import Grid from "../assets/Group 6.svg";
 import Ball from "../components/ball";
 import Raman from "../assets/raman.png"
+import axios from "axios";
+import { BACKEND_ROUTES } from "../config/urls";
 
 export default function SoftwareVote() {
-  const projects = [
-    {
-      img_url: CodingClub,
-      club_name: "Coding Club",
-      project_name: "Campus Rush",
-      team: "Aman, Sahil, Krunal",
-      stall_no: "15-A",
-      about:
-        "Money runs the world, and no one understands money better than our business clubs. Money runs the world, and no one understands money better than our business clubs.",
-      other_details:
-        "Money runs the world, and no one understands money better than our business clubs. Money runs the world, and no one understands money better than our business clubs.",
-    },
-    {
-      img_url: CodingClub,
-      club_name: "Coding Club",
-      project_name: "Campus Rush",
-      team: "Aman, Sahil, Krunal",
-      stall_no: "15-A",
-      about:
-        "Money runs the world, and no one understands money better than our business clubs.",
-      other_details:
-        "Money runs the world, and no one understands money better than our business clubs.",
-    },
-    {
-      img_url: CodingClub,
-      club_name: "Coding Club",
-      project_name: "Campus Rush",
-      team: "Aman, Sahil, Krunal",
-      stall_no: "15-A",
-      about:
-        "Money runs the world, and no one understands money better than our business clubs.",
-      other_details:
-        "Money runs the world, and no one understands money better than our business clubs.",
-    },
-    {
-      img_url: CodingClub,
-      club_name: "Coding Club",
-      project_name: "Campus Rush",
-      team: "Aman, Sahil, Krunal",
-      stall_no: "15-A",
-      about:
-        "Money runs the world, and no one understands money better than our business clubs.",
-      other_details:
-        "Money runs the world, and no one understands money better than our business clubs.",
-    },
-    {
-      img_url: CodingClub,
-      club_name: "Coding Club",
-      project_name: "Campus Rush",
-      team: "Aman, Sahil, Krunal",
-      stall_no: "15-A",
-      about:
-        "Money runs the world, and no one understands money better than our business clubs.",
-      other_details:
-        "Money runs the world, and no one understands money better than our business clubs.",
-    },
+  const [projects, setProjects] = useState([]); 
 
-    {
-      img_url: CodingClub,
-      club_name: "Coding Club",
-      project_name: "Campus Rush",
-      team: "Aman, Sahil, Krunal",
-      stall_no: "15-A",
-      about:
-        "Money runs the world, and no one understands money better than our business clubs.",
-      other_details:
-        "Money runs the world, and no one understands money better than our business clubs.",
-    },
-    {
-      img_url: CodingClub,
-      club_name: "Coding Club",
-      project_name: "Campus Rush",
-      team: "Aman, Sahil, Krunal",
-      stall_no: "15-A",
-      about:
-        "Money runs the world, and no one understands money better than our business clubs.",
-      other_details:
-        "Money runs the world, and no one understands money better than our business clubs.",
-    },
-    {
-      img_url: CodingClub,
-      club_name: "Coding Club",
-      project_name: "Campus Rush",
-      team: "Aman, Sahil, Krunal",
-      stall_no: "15-A",
-      about:
-        "Money runs the world, and no one understands money better than our business clubs.",
-      other_details:
-        "Money runs the world, and no one understands money better than our business clubs.",
-    },
-    {
-      img_url: CodingClub,
-      club_name: "Coding Club",
-      project_name: "Campus Rush",
-      team: "Aman, Sahil, Krunal",
-      stall_no: "15-A",
-      about:
-        "Money runs the world, and no one understands money better than our business clubs.",
-      other_details:
-        "Money runs the world, and no one understands money better than our business clubs.",
-    },
+  useEffect(() => {
+    const getProjects = async () => {
+      try {
+        const res = await axios.get(`${BACKEND_ROUTES.project}/software`);
+        console.log(res.data);
+        setProjects(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getProjects();
+  }, []);
+        
 
-    {
-      img_url: CodingClub,
-      club_name: "Coding Club",
-      project_name: "Campus Rush",
-      team: "Aman, Sahil, Krunal",
-      stall_no: "15-A",
-      about:
-        "Money runs the world, and no one understands money better than our business clubs.",
-      other_details:
-        "Money runs the world, and no one understands money better than our business clubs.",
-    },
-  ];
+
   const [showDescription, setShowDescription] = useState(false);
   const [data, setData] = useState({});
   function handleFunction(prop) {
@@ -146,19 +51,20 @@ export default function SoftwareVote() {
               projects.map((item, index) => {
                 return (
                   <div
+                    key={index}
                     className='hover: cursor-pointer'
                     onClick={() => {
                       handleFunction(item);
                     }}
                   >
                     <div className='flex my-4 text-white items-center'>
-                      <img className='h-8' src={item.img_url} />
+                      <img className='h-8' src={item.club.icons} />
                       <div className='ml-4 md:ml-8'>
                         <p className='font-body font-semibold text-sm md:text-xl md:leading-8 -tracking-[0.01em]'>
-                          {item.project_name}
+                          {item.name}
                         </p>
                         <p className='text-sm md:text-normal'>
-                          {item.club_name}
+                          {item.club.name}
                         </p>
                       </div>
                       <div className='flex justify-center bg-white w-20 h-12 items-center text-center md:w-32 ml-auto rounded-3xl'>
