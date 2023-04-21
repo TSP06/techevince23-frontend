@@ -181,7 +181,7 @@ export default function SoftwareVote() {
                                 : "#000000",
                           }}
                         >
-                          Vote
+                          {selectedButton === item._id ? 'Voted' : 'Vote'}
                         </p>
                         <img
                           className='h-0 md:h-fit'
