@@ -22,6 +22,7 @@ export default function SoftwareVote() {
   const [flag, setFlag] = useState(false);
   const [loggedBool, setLoggedBool] = useState(false);
   const [votedSoftware, setVotedSoftware] = useState(false);
+  const [projectData, setProjectData] = useState({});
 
   const imagesPool = useMemo(() => {
     let images = projects.map((item) => {
@@ -36,7 +37,7 @@ export default function SoftwareVote() {
   }, [projects]);
 
   const randomImage1 =
-    imagesPool[Math.floor(((Math.random() + Math.random())/2) * imagesPool.length)];
+    imagesPool[Math.floor(((Math.random() + Math.random()) / 2) * imagesPool.length)];
   const randomImage2 =
     imagesPool[Math.floor(Math.random() * imagesPool.length)];
 
@@ -69,8 +70,10 @@ export default function SoftwareVote() {
 
         if (res.data) {
           setSelectedButton(res.data.softwareVote);
-          setLoggedBool(true);
-          if(res.data.softwareVote){
+          if (res.data.email) {
+            setLoggedBool(true);
+          }
+          if (res.data.softwareVote) {
             setVotedSoftware(true);
           }
         }
@@ -151,16 +154,22 @@ export default function SoftwareVote() {
                         </div>
                       </div>
                       <div
-                        className='flex justify-center w-20 h-12 items-center text-center md:w-32 ml-auto rounded-3xl cursor-pointer'
+
+                        className={`flex justify-center w-20 h-12 items-center text-center md:w-32 ml-auto rounded-3xl`}
                         style={{
                           backgroundColor:
-                            selectedButton === item._id ? "#16a34a" : "#ffffff",
+                          loggedBool === false ? "grey" : selectedButton === item._id ? "#16a34a" : votedSoftware === true ? "grey": "#ffffff",
+                          cursor: loggedBool === false ? "not-allowed" : votedSoftware === true ? "not-allowed" : "pointer"
                         }}
                         onClick={() => {
-                          handleVote(item._id);
+                          if(loggedBool === false) return;
+                          if(votedSoftware === false){
+                            handleVote(item._id);
+                            return;
+                          }
+                          setProjectData(item._id)
                           setFlag(true);
                           setShowModal(true);
-                          console.log(item);
                         }}
                       >
                         <p
@@ -202,6 +211,8 @@ export default function SoftwareVote() {
             clearCookie={removeCookie}
             flag={flag}
             setFlag={setFlag}
+            VoteHandler={handleVote}
+            item = {projectData}
           />
           <div className='flex justify-center bg-white w-48 md:w-64 h-12 rounded-3xl mt-16 -ml-4 text-center'>
             <button

@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { BACKEND_ROUTES } from "../config/urls";
 
-const Popup = ({ showModal, setShowModal, clearCookie, flag,setFlag }) => {
+const Popup = ({ showModal, setShowModal, clearCookie, flag,setFlag, VoteHandler, item }) => {
   const handleClose = () => setShowModal(false);
   const handleFlag = () => setFlag(false);
   const handleShow = () => setShowModal(true);
@@ -17,6 +17,7 @@ const Popup = ({ showModal, setShowModal, clearCookie, flag,setFlag }) => {
   };
 
   const handleVote = async () =>{
+    VoteHandler(item);
     handleFlag();
     handleClose();
   }
@@ -37,7 +38,7 @@ const Popup = ({ showModal, setShowModal, clearCookie, flag,setFlag }) => {
                 {flag == true ? <h1 className='font-bold text-xl'>Vote Confirmation</h1> :
                                 <h1 className='font-bold text-xl'>Logout Confirmation</h1>
                 }
-                {flag == true ? <p className='text-gray-500'>Are you sure you want to delete your vote?</p> :
+                {flag == true ? <p className='text-gray-500'>Are you sure you want to change your vote?</p> :
                   <p className='text-gray-500'>Are you sure you want to log out?</p>
                 }
               </div>
