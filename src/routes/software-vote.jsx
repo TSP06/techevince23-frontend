@@ -20,6 +20,8 @@ export default function SoftwareVote() {
   const [showModal, setShowModal] = useState(false);
   const [cookies, setCookie, removeCookie] = useCookies(["connect.sid"]);
   const [flag, setFlag] = useState(false);
+  const [loggedBool, setLoggedBool] = useState(false);
+  const [votedSoftware, setVotedSoftware] = useState(false);
 
   const imagesPool = useMemo(() => {
     let images = projects.map((item) => {
@@ -67,6 +69,10 @@ export default function SoftwareVote() {
 
         if (res.data) {
           setSelectedButton(res.data.softwareVote);
+          setLoggedBool(true);
+          if(res.data.softwareVote){
+            setVotedSoftware(true);
+          }
         }
       } catch (err) {
         console.log(err);
