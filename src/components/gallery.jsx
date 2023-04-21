@@ -4,40 +4,18 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./gallery.css";
+import axios from "axios";
+import { BACKEND_ROUTES } from "../config/urls";
 
 export default function Gallery() {
-  const gallery = [
-    {
-      img_url:
-        "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Ym9va3xlbnwwfHwwfHw%3D&w=1000&q=80",
-      img_alt: "raman",
-    },
-    {
-      img_url:
-        "https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg",
-      img_alt: "raman",
-    },
-    {
-      img_url:
-        "https://cdn.pixabay.com/photo/2015/10/30/20/13/sunrise-1014712__340.jpg",
-      img_alt: "raman",
-    },
-    {
-      img_url:
-        "https://thumbs.dreamstime.com/b/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.jpg",
-      img_alt: "raman",
-    },
-    {
-      img_url:
-        "https://gratisography.com/wp-content/uploads/2023/02/gratisography-colorful-kittenfree-stock-photo-800x525.jpg",
-      img_alt: "raman",
-    },
-    {
-      img_url:
-        "https://images.pexels.com/photos/255419/pexels-photo-255419.jpeg?cs=srgb&dl=pexels-pixabay-255419.jpg&fm=jpg",
-      img_alt: "raman",
-    },
-  ];
+  const [gallery, setGallery] = useState([]);
+  useEffect(() => {
+    const getGallery = async () => {
+      const res = await axios.get(`${BACKEND_ROUTES.gallery}/carousel`);
+      setGallery(res.data);
+    };
+    getGallery();
+  }, []);
   const [active, setActive] = useState(null);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   useEffect(() => {
@@ -84,9 +62,9 @@ export default function Gallery() {
                   return (
                     <div key={index} className='h-60 md:h-80 overflow-y-auto'>
                       <img
-                        src={item.img_url}
-                        alt={item.img_alt}
-                        title={item.img_alt}
+                        src={item.link}
+                        alt={item.alt}
+                        title={item.alt}
                         className='h-full w-full center'
                       />
                     </div>
