@@ -129,7 +129,7 @@ export default function SoftwareVote() {
   return (
     <div className='flex'>
       <Link to='/' className='items-center justify-center'>
-        <div className='absolute flex my-4 mx-[25vw] md:mx-20 '>
+        <div className='absolute flex my-4 mx-[10vw] md:mx-20 '>
           <TechevinceLogoBar />
         </div>
       </Link>
@@ -141,7 +141,7 @@ export default function SoftwareVote() {
             className='absolute bottom-0 left-0 w-full h-full'
           />
         </div>
-        <div className=' relative h-5/6 w-8/12 mx-[25vw] md:mx-20 my-24 z-30'>
+        <div className=' relative h-5/6 w-8/12 mx-[18vw] md:mx-20 my-24 z-30'>
           <p className='text-3xl md:text-5xl font-semibold text-white -tracking-[0.01em] font-body'>
             Software Clubs
           </p>
