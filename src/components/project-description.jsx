@@ -136,7 +136,7 @@ export default function ProjectDescription({ isVisible, onClose, data, VoteHandl
               <p className='text-base'>{data.teamMembers.join(", ")}</p>
             </div>
             <div className='mt-4 flex gap-8 bg-white w-min p-2 rounded-full'>
-              {data.links.map((social, index) => {
+              {data.club.links.map((social, index) => {
                 return (
                   <a href={social.link} target='_blank' key={index}>
                     <div className='flex justify-center items-center gap-2 rounded-full bg-gray-800 h-10 md:h-12 w-10 md:w-12'>

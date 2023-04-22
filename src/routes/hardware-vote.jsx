@@ -109,7 +109,13 @@ export default function HardwareVote() {
   const [showDescription, setShowDescription] = useState(false);
   const [data, setData] = useState({});
   function handleFunction(prop) {
-    setData(prop);
+    let prop1 = prop;
+    prop1.images = prop1.images.map((item) => cleanUrl(item));
+    prop1.images = prop1.images.filter((item) => item !== null);
+    while (prop1.images.length < 3) {
+      prop1.images.push(hardwareLogo);
+    }
+    setData(prop1);
     setShowDescription(true);
   }
   const handleVote = async (projectId) => {

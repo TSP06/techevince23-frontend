@@ -13,6 +13,12 @@ const Redirect = () => {
     }
   }, []);
 
+  useEffect(() => {
+    setTimeout(() => {
+      window.location.href = `${FRONTEND_URL}`;
+    }, 5000);
+  }, []);
+
   return (
     <div className='h-screen w-screen grid place-items-center font-5xl'>
       Loading....

@@ -8,6 +8,14 @@ import { cleanUrl } from "../service/handleImage";
 
 const Judges = () => {
   const icons = {
+    email: (
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 96' id='email' fill="#fff" className="flex items-center justify-center mt-[3px]">
+        <path
+          d='M0 11.283V8a8 8 0 0 1 8-8h112a8 8 0 0 1 8 8v3.283l-64 40zm66.12 48.11a4.004 4.004 0 0 1-4.24 0L0 20.717V88a8 8 0 0 0 8 8h112a8 8 0 0 0 8-8V20.717z'
+          data-name='Layer 2'
+        ></path>
+      </svg>
+    ),
     facebook: (
       <svg
         height='24px'
@@ -134,23 +142,33 @@ const Judges = () => {
                     <p className='text-base md:text-2xl font-bold'>
                       {judge.name}
                     </p>
-                    <p className='text-sm md:text-xl'>{judge.designation + ' | ' + judge.company}</p>
+                    <p className='text-sm md:text-xl'>
+                      {judge.designation + " | " + judge.company}
+                    </p>
                   </div>
                   <br />
                   <br />
                   <p className='text-base md:text-xl font-semibold'>
-                    {judge.description[0].title}
+                    {judge.description &&
+                      judge.description[0] &&
+                      judge.description[0].title}
                   </p>
                   <p className='text-sm md:text-xl'>
-                    {judge.description[0].description}
+                    {judge.description &&
+                      judge.description[0] &&
+                      judge.description[0].description}
                   </p>
                   <br />
                   <br />
                   <p className='text-base md:text-xl font-semibold'>
-                    {judge.description[1].title}
+                    {judge.description &&
+                      judge.description[1] &&
+                      judge.description[1].title}
                   </p>
                   <p className='text-sm md:text-xl'>
-                    {judge.description[1].description}
+                    {judge.description &&
+                      judge.description[1] &&
+                      judge.description[1].description}
                   </p>
                   <br />
                   <div className='mt-4 flex gap-8'>
