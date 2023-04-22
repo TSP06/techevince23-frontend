@@ -3,7 +3,7 @@ import Vote from "../assets/vote.png";
 import ProjectDescription from "../components/project-description";
 import Grid from "../assets/Group 6.svg";
 import Ball from "../components/ball";
-import softwareLogo from "../assets/softwareLogo.png";
+import softwareLogo from "../assets/softwareLogo.jpg";
 import axios from "axios";
 import { BACKEND_ROUTES } from "../config/urls";
 import { cleanUrl } from "../service/handleImage";
@@ -23,6 +23,7 @@ export default function SoftwareVote() {
   const [loggedBool, setLoggedBool] = useState(false);
   const [votedSoftware, setVotedSoftware] = useState(false);
   const [projectData, setProjectData] = useState({});
+  const [votingAllowed, setVotingAllowed] = useState(false);
 
   const imagesPool = useMemo(() => {
     let images = projects.map((item) => {
@@ -58,6 +59,25 @@ export default function SoftwareVote() {
     };
     getProjects();
   }, []);
+
+  useEffect(() => {
+    const getVotingStatus = async () => {
+      try {
+        const res = await axios.get(`${BACKEND_ROUTES.vote}/allowed`);
+        if(res.data.code === 200) {
+          setVotingAllowed(true);
+        }
+        else {
+          setVotingAllowed(false);
+        }
+      }
+      catch(err) {
+        setVotingAllowed(false);
+      }
+    }
+
+    getVotingStatus();
+  })
 
   useEffect(() => {
     const getUser = async () => {
@@ -162,6 +182,10 @@ export default function SoftwareVote() {
                           cursor: loggedBool === false ? "not-allowed" : votedSoftware === true ? "not-allowed" : "pointer"
                         }}
                         onClick={() => {
+                          if(votingAllowed === false){
+                            alert("Voting Not Allowed");
+                            return;
+                          }
                           if(loggedBool === false) return;
                           if(votedSoftware === false){
                             handleVote(item._id);
@@ -207,6 +231,7 @@ export default function SoftwareVote() {
               loggedBool={loggedBool}
               voteBool={votedSoftware}
               selectedButton={selectedButton}
+              votingAllowed = {votingAllowed}
             />
           </div>
           <Popup

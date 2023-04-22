@@ -73,7 +73,7 @@ import { cleanUrl } from "../service/handleImage";
    ),
  };
 
-export default function ProjectDescription({ isVisible, onClose, data, VoteHandler, loggedBool, voteBool, selectedButton }) {
+export default function ProjectDescription({ isVisible, onClose, data, VoteHandler, loggedBool, voteBool, selectedButton, votingAllowed }) {
   if (!isVisible) return null;
   const handleClose = (e) => {
     if (e.target.id === "wrapper") onClose();
@@ -105,7 +105,7 @@ export default function ProjectDescription({ isVisible, onClose, data, VoteHandl
               ></div>
               <div className='ml-2 md:ml-4 -mt-1 md:-mt-2'>
                 <p className='text-xs md:text-sm'>Stall No.</p>
-                <p className='text:2xl md:text-4xl font-semibold'>
+                <p className='text:2xl md:text-2xl font-semibold'>
                   {data.booth}
                 </p>
               </div>
@@ -167,6 +167,10 @@ export default function ProjectDescription({ isVisible, onClose, data, VoteHandl
               cursor: loggedBool === false ? "not-allowed" : selectedButton === data._id ? "not-allowed": "pointer",
             }}
             onClick={() => {
+              if(votingAllowed === false){
+                alert("Voting Not Allowed");
+                return;
+              }
               if(loggedBool === false || selectedButton === data._id ) return;
               VoteHandler(data._id);
               return;
