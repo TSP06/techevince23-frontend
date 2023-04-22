@@ -136,7 +136,7 @@ export default function BusinessVote() {
   return (
     <div className='flex'>
       <Link to='/' className='items-center justify-center'>
-        <div className='absolute flex my-4 mx-[25vw] md:mx-20 '>
+        <div className='absolute flex my-4 mx-[10vw] md:mx-20 '>
           <TechevinceLogoBar />
         </div>
       </Link>
