@@ -4,6 +4,7 @@ import Raman from "../assets/raman.png";
 import BusinessLogo from "../assets/businessLogo.png";
 import axios from "axios";
 import { BACKEND_ROUTES } from "../config/urls";
+import { cleanUrl } from "../service/handleImage";
 
 const Judges = () => {
   const icons = {
@@ -168,7 +169,7 @@ const Judges = () => {
                   <div className='w-full hover:scale-110 transform transition duration-500'>
                     <div className='relative bg-customBlue-200 bg-opacity-50 hover:bg-opacity-0 transition duration-500'>
                       <img
-                        src={judge.image}
+                        src={cleanUrl(judge.image)}
                         className='relative   -z-20 h-32 md:h-[360px] w-96'
                       />
                       <div className='absolute transform -rotate-90 text-white text-xs md:text-3xl font-semibold md:self-stretch -left-12 md:-left-28 bottom-12 md:bottom-40 font-ClashDisplay'>

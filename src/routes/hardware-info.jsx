@@ -3,33 +3,37 @@ import Grid from "../assets/Group 6.svg";
 import Ball from "../components/ball";
 import hardwareLogo from "../assets/hardwareLogo.png";
 import axios from "axios";
-import { BACKEND_ROUTES, BACKEND_URL } from "../config/urls";
+import { BACKEND_ROUTES } from "../config/urls";
 import { Link } from "react-router-dom";
+import { cleanUrl } from "../service/handleImage";
+
 export default function HardwareInfo() {
   const [images, setImages] = useState([
-    {
-      alt: "image1",
-      link: hardwareLogo,
-    },
-    {
-      alt: "image2",
-      link: hardwareLogo,
-    },
-    {
-      alt: "image3",
-      link: hardwareLogo,
-    },
+    hardwareLogo,
+    hardwareLogo,
+    hardwareLogo,
   ]);
 
   useEffect(() => {
     const getImages = async () => {
-      const res = await axios.get(`${BACKEND_ROUTES.gallery}/hardware`);
-      if (res.data.length >= 3) {
-        setImages(res.data);
+      const res = await axios.get(`${BACKEND_ROUTES.project}/hardware`);
+      let images = res.data.map((item) => {
+        return item.images.map((image) => cleanUrl(image));
+      });
+      // deflating the array
+      images = [].concat.apply([], images);
+      while (images.length < 3) {
+        images.push(hardwareLogo);
       }
+      setImages(images);
     };
     getImages();
   }, []);
+  const indices = [
+    Math.floor(((Math.random() + Math.random()) / 2) * images.length),
+    Math.floor(Math.random() * images.length),
+    Math.floor(Math.random() * images.length),
+  ];
 
   return (
     <div className='flex bg-white z-0'>
@@ -56,40 +60,39 @@ export default function HardwareInfo() {
             clubs promise to engineer brilliance through passion, innovation,
             and curiosity.
           </p>
-          <div className="relative md:invisible w-5/6 mt-8 items-center justify-center text-center z-50">
+          <div className='relative md:invisible w-5/6 mt-8 items-center justify-center text-center z-50'>
             <div className='mr-12 self-end mb-20 bg-customBlue-200 rounded-full w-full py-8 text-white'>
               {/* <p className='font-ClashDisplay text-2xl font-bold'>
                 Vote Projects
               </p> */}
               <Link to='../vote-hardware'>
-              <div className='border-2 text-xl border-white rounded-full p-3 bg-[#333333] font-semibold'>
-                👆🏻{'  '}Click here to Vote
-              </div>
+                <div className='border-2 text-xl border-white rounded-full p-3 bg-[#333333] font-semibold'>
+                  👆🏻{"  "}Click here to Vote
+                </div>
               </Link>
             </div>
           </div>
         </div>
-        
       </div>
       <div className='z-30 md:w-7/12 w-0 bg-white'>
         <div className='ml-12 flex h-full relative overflow-hidden'>
           <div className='absolute top-10 left-0 z-20 bounce'>
-            <Ball image={images[0].link} />
+            <Ball image={images[indices[0]]} />
           </div>
           <div className='absolute top-10 right-0 z-20 bounce-dia'>
-            <Ball image={images[1].link} />
+            <Ball image={images[indices[1]]} />
           </div>
           <div className='absolute top-10 left-0 z-20 bounce-rotate'>
-            <Ball image={images[2].link} />
+            <Ball image={images[indices[2]]} />
           </div>
           <div className='mr-12 self-end mb-20 bg-customBlue-200 rounded-full w-full p-5 flex justify-between items-center text-white'>
             <p className='font-ClashDisplay text-2xl font-bold'>
               Vote Projects
             </p>
             <Link to='../vote-hardware'>
-            <div className='border-2 border-white rounded-full p-3 bg-[#333333] font-semibold'>
-              👆🏻{'  '}Click here to Vote
-            </div>
+              <div className='border-2 border-white rounded-full p-3 bg-[#333333] font-semibold'>
+                👆🏻{"  "}Click here to Vote
+              </div>
             </Link>
           </div>
         </div>
