@@ -23,6 +23,7 @@ export default function HardwareVote() {
   const [loggedBool, setLoggedBool] = useState(false);
   const [votedHardware, setVotedHardware] = useState(false);
   const [projectData, setProjectData] = useState({});
+  const [votingAllowed, setVotingAllowed] = useState(false);
 
   const imagesPool = useMemo(() => {
     let images = projects.map((item) => {
@@ -60,6 +61,25 @@ export default function HardwareVote() {
     };
     getProjects();
   }, []);
+
+  useEffect(() => {
+    const getVotingStatus = async () => {
+      try {
+        const res = await axios.get(`${BACKEND_ROUTES.vote}/allowed`);
+        if(res.data.code === 200) {
+          setVotingAllowed(true);
+        }
+        else {
+          setVotingAllowed(false);
+        }
+      }
+      catch(err) {
+        setVotingAllowed(false);
+      }
+    }
+
+    getVotingStatus();
+  })
 
   useEffect(() => {
     const getUser = async () => {
@@ -174,6 +194,10 @@ export default function HardwareVote() {
                               : "pointer",
                         }}
                         onClick={() => {
+                          if(votingAllowed === false){
+                            alert("Voting Not Allowed");
+                            return;
+                          }
                           if (loggedBool === false) return;
                           if (votedHardware === false) {
                             handleVote(item._id);
@@ -215,6 +239,11 @@ export default function HardwareVote() {
               isVisible={showDescription}
               onClose={() => setShowDescription(false)}
               data={data}
+              VoteHandler={handleVote}
+              loggedBool={loggedBool}
+              voteBool={votedHardware}
+              selectedButton={selectedButton}
+              votingAllowed = {votingAllowed}
             />
           </div>
           <Popup

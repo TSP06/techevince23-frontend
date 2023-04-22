@@ -17,17 +17,17 @@ const TopPart = () => {
           <GridTopDiv />
         </div>
         <Link to="/business">
-        <div className='absolute bottom-44 right-0 z-40 bounce-oppisite'>
+        <div className='absolute bottom-44 right-0 z-40 bounce-oppisite duration-1000'>
             <Ball image={Business}/>
         </div>
         </Link>
         <Link to="/software">
-        <div className='absolute top-20 lg:left-80 md:left-40 left-20 z-40 bounce'>
+        <div className='absolute top-20 lg:left-80 md:left-40 left-20 z-40 bounce duration-1000'>
           <Ball image={Software} />
         </div>
         </Link>
         <Link to="/hardware">
-        <div className='absolute top-20 left-0 z-40 bounce-rotate'>
+        <div className='absolute top-20 left-0 z-40 duration-1000 bounce-rotate'>
           <Ball image={Raman} />
         </div>
         </Link>

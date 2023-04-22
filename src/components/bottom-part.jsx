@@ -16,8 +16,8 @@ const BottomPart = () => {
           </p>
           <div className='absolute -bottom-1 md:-right-6 border-b-8 border-[#333] w-48 md:w-60'></div>
         </div>
-        <p className='text-white text-base md:text-2xl font-bold mt-4'>
-          Event reel is coming
+        <p className='text-white text-base md:text-2xl font-semibold mt-4'>
+          A new beginning for brighter tomorrow
         </p>
       </div>
       <div className='relative z-20 w-1/2'>

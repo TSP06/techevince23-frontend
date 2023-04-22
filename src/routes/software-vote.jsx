@@ -23,6 +23,7 @@ export default function SoftwareVote() {
   const [loggedBool, setLoggedBool] = useState(false);
   const [votedSoftware, setVotedSoftware] = useState(false);
   const [projectData, setProjectData] = useState({});
+  const [votingAllowed, setVotingAllowed] = useState(false);
 
   const imagesPool = useMemo(() => {
     let images = projects.map((item) => {
@@ -58,6 +59,25 @@ export default function SoftwareVote() {
     };
     getProjects();
   }, []);
+
+  useEffect(() => {
+    const getVotingStatus = async () => {
+      try {
+        const res = await axios.get(`${BACKEND_ROUTES.vote}/allowed`);
+        if(res.data.code === 200) {
+          setVotingAllowed(true);
+        }
+        else {
+          setVotingAllowed(false);
+        }
+      }
+      catch(err) {
+        setVotingAllowed(false);
+      }
+    }
+
+    getVotingStatus();
+  })
 
   useEffect(() => {
     const getUser = async () => {
@@ -109,7 +129,7 @@ export default function SoftwareVote() {
   return (
     <div className='flex'>
       <Link to='/' className='items-center justify-center'>
-        <div className='absolute flex my-4 mx-[25vw] md:mx-20 '>
+        <div className='absolute flex my-4 mx-[10vw] md:mx-20 '>
           <TechevinceLogoBar />
         </div>
       </Link>
@@ -121,7 +141,7 @@ export default function SoftwareVote() {
             className='absolute bottom-0 left-0 w-full h-full'
           />
         </div>
-        <div className=' relative h-5/6 w-8/12 mx-[15vw] md:mx-20 my-24 z-30'>
+        <div className=' relative h-5/6 w-8/12 mx-[18vw] md:mx-20 my-24 z-30'>
           <p className='text-3xl md:text-5xl font-semibold text-white -tracking-[0.01em] font-body'>
             Software Clubs
           </p>
@@ -162,6 +182,10 @@ export default function SoftwareVote() {
                           cursor: loggedBool === false ? "not-allowed" : votedSoftware === true ? "not-allowed" : "pointer"
                         }}
                         onClick={() => {
+                          if(votingAllowed === false){
+                            alert("Voting Not Allowed");
+                            return;
+                          }
                           if(loggedBool === false) return;
                           if(votedSoftware === false){
                             handleVote(item._id);
@@ -203,6 +227,11 @@ export default function SoftwareVote() {
               isVisible={showDescription}
               onClose={() => setShowDescription(false)}
               data={data}
+              VoteHandler={handleVote}
+              loggedBool={loggedBool}
+              voteBool={votedSoftware}
+              selectedButton={selectedButton}
+              votingAllowed = {votingAllowed}
             />
           </div>
           <Popup
@@ -214,7 +243,7 @@ export default function SoftwareVote() {
             VoteHandler={handleVote}
             item = {projectData}
           />
-          <div className='flex justify-center bg-white w-[inherit] mx-auto md:mx-0 md:-ml-4 md:w-64 h-12 rounded-3xl mt-16 text-center'>
+          <div className='flex justify-center bg-white w-48 md:w-64 h-12 rounded-3xl mt-16 -ml-4 text-center'>
             <button
               onClick={() => {
                 if (user && user.hasOwnProperty("name")) setShowModal(true);

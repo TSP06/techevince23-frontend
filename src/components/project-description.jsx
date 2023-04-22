@@ -73,7 +73,7 @@ import { cleanUrl } from "../service/handleImage";
    ),
  };
 
-export default function ProjectDescription({ isVisible, onClose, data }) {
+export default function ProjectDescription({ isVisible, onClose, data, VoteHandler, loggedBool, voteBool, selectedButton, votingAllowed }) {
   if (!isVisible) return null;
   const handleClose = (e) => {
     if (e.target.id === "wrapper") onClose();
@@ -105,7 +105,7 @@ export default function ProjectDescription({ isVisible, onClose, data }) {
               ></div>
               <div className='ml-2 md:ml-4 -mt-1 md:-mt-2'>
                 <p className='text-xs md:text-sm'>Stall No.</p>
-                <p className='text:2xl md:text-4xl font-semibold'>
+                <p className='text:2xl md:text-2xl font-semibold'>
                   {data.booth}
                 </p>
               </div>
@@ -116,12 +116,12 @@ export default function ProjectDescription({ isVisible, onClose, data }) {
             <p className='text-sm md:text-base mb-2 md:mb-4'>
               {data.description}
             </p>
-            <p className='font-semibold md:text-base md:leading-6 mb-2'>
+            {/* <p className='font-semibold md:text-base md:leading-6 mb-2'>
               Other Details
             </p>
             <p className='text-sm md:text-base mb-4 md:mb-4'>
               {data.description}
-            </p>
+            </p> */}
             <div className='flex items-center h-10 md:h-12'>
               <img className='h-full' src={cleanUrl(data.club.icons)} />
               <div className='ml-4'>
@@ -161,8 +161,31 @@ export default function ProjectDescription({ isVisible, onClose, data }) {
             <div className='absolute bottom-40 left-32 z-20'>
               <Ball image={cleanUrl(data.images[2])} bgColor='white' />
             </div>
-            <div className='self-end mb-20 bg-customBlue-200 rounded-full w-full p-5 flex justify-center items-center text-white'>
-              <p className='font-ClashDisplay text-2xl font-bold'>Vote Now</p>
+            <div className='self-end mb-20 bg-customBlue-200 rounded-full w-full p-5 flex justify-center items-center text-white'
+            style={{
+              backgroundColor: loggedBool === false ? "grey" : selectedButton === data._id ? "#16a34a" : "#2563eb",
+              cursor: loggedBool === false ? "not-allowed" : selectedButton === data._id ? "not-allowed": "pointer",
+            }}
+            onClick={() => {
+              if(votingAllowed === false){
+                alert("Voting Not Allowed");
+                return;
+              }
+              if(loggedBool === false || selectedButton === data._id ) return;
+              VoteHandler(data._id);
+              return;
+            }}
+            >
+              {selectedButton === data._id &&
+                <p className='font-ClashDisplay text-2xl font-bold'>
+                  Voted
+                </p>
+              }
+              {selectedButton != data._id &&
+                <p className='font-ClashDisplay text-2xl font-bold'>
+                  Vote Now
+                </p>
+              }
             </div>
           </div>
         </div>
