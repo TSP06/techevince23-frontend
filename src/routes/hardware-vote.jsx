@@ -31,6 +31,8 @@ export default function HardwareVote() {
     });
     // deflating the array
     images = [].concat.apply([], images);
+    images = images.filter((item) => item !== null);
+
     while (images.length < 2) {
       images.push(hardwareLogo);
     }
@@ -66,20 +68,18 @@ export default function HardwareVote() {
     const getVotingStatus = async () => {
       try {
         const res = await axios.get(`${BACKEND_ROUTES.vote}/allowed`);
-        if(res.data.code === 200) {
+        if (res.data.code === 200) {
           setVotingAllowed(true);
-        }
-        else {
+        } else {
           setVotingAllowed(false);
         }
-      }
-      catch(err) {
+      } catch (err) {
         setVotingAllowed(false);
       }
-    }
+    };
 
     getVotingStatus();
-  })
+  });
 
   useEffect(() => {
     const getUser = async () => {
@@ -194,7 +194,7 @@ export default function HardwareVote() {
                               : "pointer",
                         }}
                         onClick={() => {
-                          if(votingAllowed === false){
+                          if (votingAllowed === false) {
                             alert("Voting Not Allowed");
                             return;
                           }
@@ -243,7 +243,7 @@ export default function HardwareVote() {
               loggedBool={loggedBool}
               voteBool={votedHardware}
               selectedButton={selectedButton}
-              votingAllowed = {votingAllowed}
+              votingAllowed={votingAllowed}
             />
           </div>
           <Popup

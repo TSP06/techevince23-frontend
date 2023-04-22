@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "./gallery.css";
 import axios from "axios";
 import { BACKEND_ROUTES } from "../config/urls";
+import { cleanUrl } from "../service/handleImage";
 
 export default function Gallery() {
   const [gallery, setGallery] = useState([]);
@@ -62,7 +63,7 @@ export default function Gallery() {
                   return (
                     <div key={index} className='h-60 md:h-80 overflow-y-auto'>
                       <img
-                        src={item.link}
+                        src={cleanUrl(item.link)}
                         alt={item.alt}
                         title={item.alt}
                         className='h-full w-full center'

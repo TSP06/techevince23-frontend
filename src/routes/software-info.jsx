@@ -22,6 +22,7 @@ export default function SoftwareInfo() {
       });
       // deflating the array
       images = [].concat.apply([], images);
+      images = images.filter((item) => item !== null);
       while (images.length < 3) {
         images.push(softwareLogo);
       }

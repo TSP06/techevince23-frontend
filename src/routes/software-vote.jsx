@@ -31,6 +31,8 @@ export default function SoftwareVote() {
     });
     // deflating the array
     images = [].concat.apply([], images);
+    images = images.filter((item) => item !== null);
+
     while (images.length < 2) {
       images.push(softwareLogo);
     }
@@ -38,7 +40,9 @@ export default function SoftwareVote() {
   }, [projects]);
 
   const randomImage1 =
-    imagesPool[Math.floor(((Math.random() + Math.random()) / 2) * imagesPool.length)];
+    imagesPool[
+      Math.floor(((Math.random() + Math.random()) / 2) * imagesPool.length)
+    ];
   const randomImage2 =
     imagesPool[Math.floor(Math.random() * imagesPool.length)];
 
@@ -64,20 +68,18 @@ export default function SoftwareVote() {
     const getVotingStatus = async () => {
       try {
         const res = await axios.get(`${BACKEND_ROUTES.vote}/allowed`);
-        if(res.data.code === 200) {
+        if (res.data.code === 200) {
           setVotingAllowed(true);
-        }
-        else {
+        } else {
           setVotingAllowed(false);
         }
-      }
-      catch(err) {
+      } catch (err) {
         setVotingAllowed(false);
       }
-    }
+    };
 
     getVotingStatus();
-  })
+  });
 
   useEffect(() => {
     const getUser = async () => {
@@ -174,24 +176,34 @@ export default function SoftwareVote() {
                         </div>
                       </div>
                       <div
-
                         className={`flex justify-center w-20 h-12 items-center text-center md:w-32 ml-auto rounded-3xl`}
                         style={{
                           backgroundColor:
-                          loggedBool === false ? "grey" : selectedButton === item._id ? "#16a34a" : votedSoftware === true ? "grey": "#ffffff",
-                          cursor: loggedBool === false ? "not-allowed" : votedSoftware === true ? "not-allowed" : "pointer"
+                            loggedBool === false
+                              ? "grey"
+                              : selectedButton === item._id
+                              ? "#16a34a"
+                              : votedSoftware === true
+                              ? "grey"
+                              : "#ffffff",
+                          cursor:
+                            loggedBool === false
+                              ? "not-allowed"
+                              : votedSoftware === true
+                              ? "not-allowed"
+                              : "pointer",
                         }}
                         onClick={() => {
-                          if(votingAllowed === false){
+                          if (votingAllowed === false) {
                             alert("Voting Not Allowed");
                             return;
                           }
-                          if(loggedBool === false) return;
-                          if(votedSoftware === false){
+                          if (loggedBool === false) return;
+                          if (votedSoftware === false) {
                             handleVote(item._id);
                             return;
                           }
-                          setProjectData(item._id)
+                          setProjectData(item._id);
                           setFlag(true);
                           setShowModal(true);
                         }}
@@ -205,7 +217,7 @@ export default function SoftwareVote() {
                                 : "#000000",
                           }}
                         >
-                          {selectedButton === item._id ? 'Voted' : 'Vote'}
+                          {selectedButton === item._id ? "Voted" : "Vote"}
                         </p>
                         <img
                           className='h-0 md:h-fit'
@@ -231,7 +243,7 @@ export default function SoftwareVote() {
               loggedBool={loggedBool}
               voteBool={votedSoftware}
               selectedButton={selectedButton}
-              votingAllowed = {votingAllowed}
+              votingAllowed={votingAllowed}
             />
           </div>
           <Popup
@@ -241,7 +253,7 @@ export default function SoftwareVote() {
             flag={flag}
             setFlag={setFlag}
             VoteHandler={handleVote}
-            item = {projectData}
+            item={projectData}
           />
           <div className='flex justify-center bg-white w-48 md:w-64 h-12 rounded-3xl mt-16 -ml-4 text-center'>
             <button
