@@ -116,12 +116,12 @@ export default function ProjectDescription({ isVisible, onClose, data, VoteHandl
             <p className='text-sm md:text-base mb-2 md:mb-4'>
               {data.description}
             </p>
-            <p className='font-semibold md:text-base md:leading-6 mb-2'>
+            {/* <p className='font-semibold md:text-base md:leading-6 mb-2'>
               Other Details
             </p>
             <p className='text-sm md:text-base mb-4 md:mb-4'>
               {data.description}
-            </p>
+            </p> */}
             <div className='flex items-center h-10 md:h-12'>
               <img className='h-full' src={cleanUrl(data.club.icons)} />
               <div className='ml-4'>
