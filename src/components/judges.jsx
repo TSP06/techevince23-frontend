@@ -188,9 +188,9 @@ const Judges = () => {
                     <div className='relative bg-customBlue-200 bg-opacity-50 hover:bg-opacity-0 transition duration-500'>
                       <img
                         src={cleanUrl(judge.image)}
-                        className='relative   -z-20 h-32 md:h-[360px] w-96'
+                        className='relative   -z-20 h-32 md:h-[360px] w-104'
                       />
-                      <div className='absolute transform -rotate-90 text-white text-xs md:text-3xl font-semibold md:self-stretch -left-12 md:-left-28 bottom-12 md:bottom-40 font-ClashDisplay'>
+                      <div className='absolute transform -rotate-90 text-white text-xs md:text-3xl font-semibold  md:-left-16 bottom-12 md:bottom-40 font-ClashDisplay'>
                         {judge.name}
                       </div>
                     </div>
