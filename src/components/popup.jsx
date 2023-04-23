@@ -15,7 +15,7 @@ const Popup = ({ showModal, setShowModal, clearCookie, flag,setFlag, VoteHandler
     await axios.get(BACKEND_ROUTES.logout, { withCredentials: true });
     clearCookie("connect.sid");
     handleClose();
-    window.location.href = window.location.origin;
+    window.location.reload();
   };
 
   const handleVote = async () =>{
