@@ -112,7 +112,7 @@ export default function BusinessVote() {
      prop1.images = prop1.images.map((item) => cleanUrl(item));
      prop1.images = prop1.images.filter((item) => item !== null);
      while (prop1.images.length < 3) {
-       prop1.images.push(businessLogo);
+       prop1.images.push(prop.club.icons);
      }
      setData(prop1);
     setShowDescription(true);
