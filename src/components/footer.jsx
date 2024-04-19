@@ -1,5 +1,5 @@
 import React from "react";
-import TechevinceLogo from "../assets/techevince-logo.svg";
+import TechevinceLogo from "../assets/logoteche.png";
 
 const Footer = () => {
   return (
@@ -7,7 +7,7 @@ const Footer = () => {
       <div className='bg-white md:flex items-center justify-around pt-8 md:pt-40 lg:pt-8 pb-12 md:py-7 mx-[20%] space-y-1'>
         <div className='flex md:justify-between items-center text-center justify-center'>
           <img src={TechevinceLogo} alt='techevince-logo' />
-          <p className='font-ClashDisplay font-semibold ml-4 text-center'>Techevince 9.0</p>
+          <p className='font-ClashDisplay font-semibold ml-4 text-center'>Techevince 10.0</p>
         </div>
         <div>
           <p className='font-GalanoGrotesque items-center text-center'>
@@ -17,7 +17,7 @@ const Footer = () => {
         <div className="flex items-center text-center justify-center">
           <div className='flex gap-4'>
             <a
-              href='https://www.facebook.com/techevince'
+              href='https://www.facebook.com/techboard.iitg/'
               target='_blank'
               rel='noreferrer'
             >
@@ -43,7 +43,7 @@ const Footer = () => {
               </svg>
             </a>
             <a
-              href='https://www.instagram.com/techevince/'
+              href='https://www.instagram.com/techboard.iitg/?hl=en'
               target='_blank'
               rel='noreferrer'
             >
@@ -69,7 +69,7 @@ const Footer = () => {
               </svg>
             </a>
             <a
-              href='https://www.linkedin.com/company/techevince/'
+              href='https://www.linkedin.com/company/techboard-iitg/'
               target='_blank'
               rel='noreferrer'
             >

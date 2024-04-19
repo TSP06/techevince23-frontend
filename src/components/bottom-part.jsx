@@ -12,9 +12,9 @@ const BottomPart = () => {
         <div className='relative'>
           <p className='text-white text-2xl md:text-5xl font-bold'>
             {" "}
-            See you on 23rd April{" "}
+            See you on 20th April{" "}
           </p>
-          <div className='absolute -bottom-1 md:-right-6 border-b-8 border-[#333] w-48 md:w-60'></div>
+          
         </div>
         <p className='text-white text-base md:text-2xl font-semibold mt-4'>
           A new beginning for brighter tomorrow

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Grid from "../assets/Group 6.svg";
 import Ball from "../components/ball";
-import businessLogo from "../assets/businessLogo.png";
+import businessLogo from "../assets/businessbanner.jpg";
 import axios from "axios";
 import { BACKEND_ROUTES } from "../config/urls";
 import { Link } from "react-router-dom";

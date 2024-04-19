@@ -3,7 +3,7 @@ import Vote from "../assets/vote.png";
 import ProjectDescription from "../components/project-description";
 import Grid from "../assets/Group 6.svg";
 import Ball from "../components/ball";
-import hardwareLogo from "../assets/hardwareLogo.png";
+import hardwareLogo from "../assets/hardwarebanner.webp";
 import axios from "axios";
 import { BACKEND_ROUTES } from "../config/urls";
 import { cleanUrl } from "../service/handleImage";

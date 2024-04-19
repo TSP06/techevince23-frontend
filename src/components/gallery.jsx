@@ -32,7 +32,7 @@ export default function Gallery() {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 750,
     slidesToShow:
       screenWidth > 640 ? 4 : screenWidth > 480 ? 3 : 1,
     slidesToScroll: 1,

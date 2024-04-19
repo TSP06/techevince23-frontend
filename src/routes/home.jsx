@@ -16,7 +16,7 @@ export default function ErrorPage() {
       <TopPart />
       <Info />
       <Gallery />
-      <Team />
+      
       <Judges />
       <BottomPart />
       <Footer />

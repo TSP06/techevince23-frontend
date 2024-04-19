@@ -1,8 +1,8 @@
 import drone from "../assets/drone.png"
 import drone2 from "../assets/drone2.png"
-import softwareLogo from "../assets/softwareLogo.jpg"
-import hadwareLogo from "../assets/hardwareLogo.png"
-import businessLogo from "../assets/businessLogo.png"
+import softwareLogo from "../assets/softwarebanner.jpg"
+import hadwareLogo from "../assets/hardwarebanner.webp"
+import businessLogo from "../assets/businessbanner.jpg"
 import frame1 from "../assets/frame1.png"
 import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
@@ -54,7 +54,7 @@ export default function Info() {
             style={{ fontFamily: "GalanoGrotesque", bottom: "4%" }}
           >
             <br />
-            Techevince 2023 is the 9th edition of the annual technical
+            Techevince 2024 is the 10th edition of the annual technical
             exhibition of the Technical Board of IIT Guwahati. Techevince puts
             all of IITG's technological passion, innovation, and creativity
             under the limelight and gives a stage to the college's tech
@@ -81,7 +81,7 @@ export default function Info() {
             style={{ fontFamily: "GalanoGrotesque", bottom: "4%" }}
           >
             <br />
-            Techevince will be going to be held on 23rd April at IIT Guwahati
+            Techevince will be going to be held on 20th April at IIT Guwahati
             Campus. Various tech clubs with over 500+ students will be going to
             participate in this mega tech expo and will be presenting their
             astounding projects and work in their respective domains.
@@ -114,11 +114,11 @@ export default function Info() {
             project_category.map((item) => {
               return (
                 <Link to={item.page_link}>
-                  <div className='flex h-full w-full hover:scale-110 transform transition duration-500'>
-                    <div className='flex h-full relative bg-customBlue-200 bg-opacity-50 hover:bg-opacity-0 transition duration-500'>
+                  <div className='flex h-96 w-full hover:scale-110 transform transition duration-500'>
+                    <div className='flex h-full relative bg-customBlue-200 bg-opacity-10 hover:bg-opacity-0 transition duration-500'>
                       <img src={cleanUrl(item.img_url)} className='relative -z-20 w-[75vw] md:w-[24vw]' />
                       <div
-                        className='absolute transform -rotate-90 text-white text-3xl md:text-5xl font-semibold self-stretch -left-8 md:-left-16 bottom-28 font-ClashDisplay'
+                        className='absolute  text-white text-3xl md:text-5xl font-semibold self-stretch left-1/8 bottom-0 font-ClashDisplay'
                       >
                         {item.category}
                       </div>
@@ -132,34 +132,8 @@ export default function Info() {
       </div>
 
       <div className='flex mt-12 items-center ml-14'>
-        <div className='w-full md:w-2/5 items-baseline md:pr-20'>
-          <p
-            className='flex flex-col text-center items-start text-3xl md:text-4xl font-semibold self-stretch -mb-3 top-5 left-14 z-10 font-ClashDisplay'
-          >
-            Event Structure
-          </p>
-          <div className='rectangle bg-customBlue-100 h-3 w-56 sm:mx-16 top-11 left-28'></div>
-          <p
-            className='text-base font-normal text-left flex-wrap leading-6'
-            style={{ fontFamily: "GalanoGrotesque", bottom: "4%" }}
-          >
-            <br />
-            Techevince will be going to be held on 23rd April at IIT Guwahati
-            Campus. Various tech clubs with over 500+ students will be going to
-            participate in this mega tech expo and will be presenting their
-            astounding projects and work in their respective domains.
-          </p>
-        </div>
-        {screenWidth > 540 && (
-          <div className='grow'>
-            <img src={drone} />
-          </div>
-        )}
-        {screenWidth > 768 && (
-          <div>
-            <img src={drone2} />
-          </div>
-        )}
+       
+        
       </div>
     </div>
   );

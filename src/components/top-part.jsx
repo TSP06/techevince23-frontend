@@ -16,7 +16,8 @@ const TopPart = () => {
         <div className='absolute'>
           <GridTopDiv />
         </div>
-        <Link to="/business">
+       {/* 
+       <Link to="/business">
         <div className='absolute bottom-44 right-0 z-40 bounce-oppisite duration-1000'>
             <Ball image={Business}/>
         </div>
@@ -31,29 +32,30 @@ const TopPart = () => {
           <Ball image={Raman} />
         </div>
         </Link>
+  */}
 
         <div className='absolute flex justify-center md:justify-start top-16 md:left-20 z-20 inset-0'>
           <TechevinceLogoBar />
         </div>
 
-        <div className='pt-48 z-20 mx-8 lg:mx-64 relative font-extrabold text-6xl lg:text-[5rem] text-white flex flex-col'>
+        <div className='pt-48 z-20 mx-8 lg:mx-64 relative font-extrabold text-6xl lg:text-[5rem] text-white flex flex-col items-center gap-8'>
           <p className=''>A new</p>
-          <p className='md:self-end md:mr-28'>Beginning for</p>
-          <p className='md:self-end'>brighter</p>
-          <p className='md:ml-24'>tomorrow</p>
+          <div className ='flex flex-row items-center flex-wrap justify-center gap-2'  ><p>Beginning for</p>
+         <p> brighter</p>
+         
+         </div>
+          <p >tomorrow</p>
         </div>
 
         <div className='mx-8 md:mx-24 lg:mx-36 relative py-12 flex items-end flex-col'>
-          <div className='border-white border-2 font-bold right-0 top-0 rounded-full px-5 flex items-center h-16 text-white md:text-xl mb-10'>
-            <p>👆🏻 Press and hold project to open</p>
-          </div>
+         
           <div className='top-48 right-0 border-2 w-full border-white font-bold rounded-full flex justify-around items-center py-5 px-5 text-white text-xl'>
             <div className='flex flex-col items-center'>
               <p className='md:text-6xl'>500+</p>
               <p className='md:text-xl text-sm font-GalanoGrotesque'>Students</p>
             </div>{" "}
             <div className='flex flex-col items-center'>
-              <p className='md:text-6xl'>2000+</p>
+              <p className='md:text-6xl'>3000+</p>
               <p className='md:text-xl text-sm font-GalanoGrotesque'>Footfall</p>
             </div>{" "}
             <div className='flex flex-col items-center'>
